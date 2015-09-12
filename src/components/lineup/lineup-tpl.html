@@ -4,6 +4,15 @@
         <ul class="list-group">
             <li class="list-group-item" ng-repeat="party in lineup.parties | mutable">
                 {{party.get('id')}} - {{party.get('numberOfPeople')}}
+                <div class="btn btn-group" role="group">
+                <button type="button" 
+                    class="btn btn-default" 
+                    ng-click="lineup.seatParty(party.get('id'))">Seat Party</button>
+                <button type="button" 
+                    class="btn btn-default"
+                    ng-click="lineup.leaveLine(party.get('id'))"
+                    >X</button>
+                </div>
             </li>
         </ul>
         <input ng-model="lineup.numberOfPeople">

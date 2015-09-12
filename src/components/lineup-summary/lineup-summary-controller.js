@@ -38,5 +38,14 @@ So here we have added another component to the system, and the people in line su
 is being kept in sync with the parties list, and without needing to rely on two-way
 data binding.
 
+// ... after the summary component part
+
+Lets go back and wire up some final events on our lineup component, we'll hookup
+the seat, and leave events.
+
+// TODO:
+
+change 'seatParty' so it's not just a remove - but prompts for the table to seat them
+at --- then once seated. remove?
 
  */
