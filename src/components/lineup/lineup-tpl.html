@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Parties in Line</div>
+    <div class="panel-body">
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="party in lineup.parties | mutable">
+                {{party.get('id')}} - {{party.get('numberOfPeople')}}
+            </li>
+        </ul>
+        <input ng-model="lineup.numberOfPeople">
+        <button type="button" ng-click="lineup.joinLine(lineup.numberOfPeople)">New Party</button>
+    </div>
+</div>

@@ -12,14 +12,14 @@ export function _resetIndex() {
 
 export function joinLine(numberOfPeople) {
 
-    return {
-      type: PARTY_JOINED,
-      payload: {
-        id: ++partyIndex,
-        numberOfPeople
-      }
-    };
-  
+  return {
+    type: PARTY_JOINED,
+    payload: {
+      id: ++partyIndex,
+      numberOfPeople
+    }
+  };
+
 }
 
 export function seatParty(id) {
@@ -40,6 +40,9 @@ export function leaveLine(id) {
   };
 }
 
+export default {
+  joinLine, seatParty, leaveLine
+};
 /*
 
 Unless you are using middleware (which we will get to later...),  actions with redux
@@ -58,6 +61,16 @@ Since these are plain objects, it also makes testing them really easy.
 
 For now, we will just internally keep track/generate the next party ID - but later on
 we will see how this could be moved to a side-effect caused by a server/http request
+
+
+// something about commands vs events / actions vs events
+----
+
+Now at this point you are probably thinking 'I thought this was an angular conference,
+yet I haven't seen any angular code yet', worry not - we will now look at how to start
+hooking up redux into angular, using a binding library called ng-redux.
+
+// onto src/index.js stuffs?
 
 
  */

@@ -8,7 +8,7 @@ export default function routerConfig($urlRouterProvider, $stateProvider) {
     .state('app', {
       url: '/app',
       views: {
-        main: {
+        '': {
           template: mainTemplate,
           controller: 'MainController',
           controllerAs: 'main'
