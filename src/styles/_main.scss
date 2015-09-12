@@ -1,0 +1,229 @@
+$slate: #434857;
+$charcoal: #252830;
+$blue: #1997c6;
+
+html,
+body {
+  font-family: 'Roboto';
+  background-color: $charcoal;
+  color: #fff;
+}
+
+body {
+  padding-top: 70px;
+}
+
+.global-debug {
+  background-color: $slate;
+  color: #fff;
+  display: block;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  overflow: auto;
+  max-width: 680px;
+
+  &.expanded {
+    bottom: 0;
+  }
+}
+
+.global-debugger {
+  display: none;
+  margin: 15px;
+
+  &.visible {
+    display: block;
+  }
+}
+
+.card-panel {
+  position: fixed;
+  top: 50px;
+  right: 0;
+  bottom: 0;
+  background-color: $blue;
+  width: 50%;
+  max-width: 600px;
+  z-index: 8;
+}
+
+.lead {
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-bottom: 5px;
+  color: darken(white, 35%);
+}
+
+
+.navigation-bar {
+  height: 55px;
+  z-index: 9;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  background-color: $slate;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  h1 {
+    font-size: 24px;
+    margin: 0;
+    padding: 0 25px 0 0;
+  }
+}
+
+hr {
+  border-top: 1px solid $slate;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 100;
+}
+
+.btn-default {
+  border: 1px solid $blue;
+  color: $blue;
+  background: none;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background: $blue !important;
+    border: 1px solid $blue !important;
+    color: #fff !important;
+  }
+
+  &.active {
+    background: $blue !important;
+    border: 1px solid $blue !important;
+    color: #fff !important;
+  }
+}
+
+.list-graph {
+  border: 1px solid $slate;
+  border-radius: 4px;
+  padding: 0;
+  margin-bottom: 35px;
+
+  .lead {
+    text-transform: none;
+    padding: 8px;
+    font-weight: 400;
+    font-size: 18px;
+    margin: 0;
+    border-bottom: 1px solid $slate;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      font-weight: 100;
+      padding: 8px 16px;
+      border-bottom: 1px solid $slate;
+      color: darken(white, 15%);
+
+      &:hover {
+        background-color: $slate;
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .pull-right {
+        color: darken(white, 35%);
+      }
+    }
+  }
+}
+
+.number-graph {
+  border-right: 1px solid $slate;
+  border-bottom: 1px solid $slate;
+  padding-bottom: 15px;
+  border-bottom-right-radius: 4px;
+
+  .lead,
+  h1 {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.hr-divider {
+  height: 50px;
+  text-align: center;
+  position: relative;
+  margin: 15px;
+
+  &:before {
+    position: absolute;
+    top: 50%;
+    height: 1px;
+    width: 100%;
+    display: block;
+    content: "";
+    background-color: $slate;
+  }
+
+  h3 {
+    font-size: 12px;
+    text-transform: uppercase;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    top: -16px;
+    background-color: $charcoal;
+    padding: 15px;
+  }
+}
+
+.team-selector {
+  // margin-top: 30px;
+  margin: 30px 15px;
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    width: 100%;
+
+    li {
+      width: 100%;
+    }
+
+    a {
+      padding: 8px 16px;
+      margin: 4px 0;
+      text-decoration: none;
+      font-weight: 100;
+      width: 100%;
+      border-radius: 4px;
+      display: block;
+      color: darken(white, 15%);
+
+      &:hover {
+        background-color: $slate;
+      }
+
+      &.active {
+        background-color: $blue;
+        color: $charcoal;
+      }
+    }
+  }
+}

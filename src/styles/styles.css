@@ -1,0 +1,14 @@
+.global-debug {
+  background-color: lightgray;
+  padding: 15px;
+  width: 100%;
+  display: block;
+}
+
+.global-debugger {
+  display: none;
+}
+
+.global-debugger.visible {
+  display: block;
+}
