@@ -16,7 +16,7 @@ export function joinLine(numberOfPeople) {
     type: PARTY_JOINED,
     payload: {
       id: ++partyIndex,
-      numberOfPeople
+      numberOfPeople: parseInt(numberOfPeople,10)
     }
   };
 

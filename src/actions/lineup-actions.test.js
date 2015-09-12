@@ -52,4 +52,10 @@ describe('the lineup actions', () => {
     });
   });
 
+  it('should convert the number of people to an integer',() => {
+    const joinLine = lineupActions.joinLine('5');
+    expect(joinLine.payload.numberOfPeople).to.equal(5);
+
+  });
+
 });

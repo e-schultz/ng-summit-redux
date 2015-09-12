@@ -81,5 +81,13 @@ lets add this to our mapStateToTarget function, and set it to null.
 
 // todo - unit-tests for this part
 
+One of the powerful ideas with reactive architecture, and redux - is the ability to
+create new components and functionality that is dervied from the application state.
+
+Before getting into seating our guests, lets make a simple component to show
+the total number of people in lne.
+
+// onto lineup-summary.js
+
 
  */
