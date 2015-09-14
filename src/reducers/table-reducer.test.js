@@ -8,7 +8,7 @@ import {INITIAL_STATE, CLEAN, DIRTY, OCCUPIED} from './table-reducer';
 chai.use(chaiImmutable);
 /* beautify preserve:end */
 
-describe.only('the table reducer', () => {
+describe('the table reducer', () => {
   let findIndex = (collection, id) => collection.findIndex(n => n.get('id') === id);
   it('should be created with an initial state', () => {
 
@@ -22,7 +22,8 @@ describe.only('the table reducer', () => {
     const seatedEvent = {
       type: PARTY_SEATED,
       payload: {
-        id: 1
+        partyId: 1,
+        tableId: 1
 
       }
     };
@@ -36,7 +37,7 @@ describe.only('the table reducer', () => {
     const paidEvent = {
       type: 'CUSTOMER_PAID',
       payload: {
-        id: 1
+        tableId: 1
 
       }
     };
@@ -45,7 +46,7 @@ describe.only('the table reducer', () => {
     expect(nextState.getIn([tableIndex, 'status'])).to.equal(DIRTY);
   });
 
-  it('should set the table to clean after it has been clened', () => {
+  it('should set the table to clean after it has been cleaned', () => {
     const dirtyState = fromJS([{
       id: 1,
       status: DIRTY
@@ -55,7 +56,7 @@ describe.only('the table reducer', () => {
     const cleanedEvent = {
       type: 'TABLE_CLEANED',
       payload: {
-        id: 1
+        tableId: 1
 
       }
     };

@@ -1,7 +1,7 @@
 <div>
     <div ng-show="table.tableStatus === 'CLEAN'">
         <input ng-model="table.partyId">
-        <button type="button" ng-click="table.seatParty({partyId:table.partyId});">Seat Party</button>
+        <button type="button" ng-click="table.seatParty({partyId:table.partyId, tableId: table.tableId});">Seat Party</button>
     </div>
     <div ng-show="table.tableStatus === 'OCCUPIED'">
     Take Order

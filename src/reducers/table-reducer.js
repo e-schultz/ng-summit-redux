@@ -32,17 +32,17 @@ export default function tableReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
   case PARTY_SEATED:
     {
-      let tableIndex = findIndex(state, action.payload.id);
+      let tableIndex = findIndex(state, action.payload.tableId);
       return state.setIn([tableIndex, 'status'], OCCUPIED);
     }
   case 'CUSTOMER_PAID':
     {
-      let tableIndex = findIndex(state, action.payload.id);
+      let tableIndex = findIndex(state, action.payload.tableId);
       return state.setIn([tableIndex, 'status'], DIRTY);
     }
   case 'TABLE_CLEANED':
     {
-      let tableIndex = findIndex(state, action.payload.id);
+      let tableIndex = findIndex(state, action.payload.tableId);
       return state.setIn([tableIndex, 'status'], CLEAN);
     }
   case 'ORDER_PLACED':

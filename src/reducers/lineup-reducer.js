@@ -26,14 +26,14 @@ export default function lineup(state = INITIAL_STATE, action) {
     }
   case PARTY_SEATED:
     {
-      const partyIndex = state.get('parties').findIndex(n => n.get('id') === action.payload.id);
+      const partyIndex = state.get('parties').findIndex(n => n.get('partyId') === action.payload.partyId);
       // TODO: error handling if index is -1?
       // alternativly - do I want to change status instead of removing?
       return state.removeIn(['parties', partyIndex]);
     }
   case PARTY_LEFT:
     {
-      const partyIndex = state.get('parties').findIndex(n => n.get('id') === action.payload.id);
+      const partyIndex = state.get('parties').findIndex(n => n.get('partyId') === action.payload.partyId);
       return state.removeIn(['parties', partyIndex]);
     }
   default:

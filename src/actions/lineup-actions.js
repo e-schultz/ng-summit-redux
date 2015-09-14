@@ -15,19 +15,20 @@ export function joinLine(numberOfPeople) {
   return {
     type: PARTY_JOINED,
     payload: {
-      id: ++partyIndex,
+      partyId: ++partyIndex,
       numberOfPeople: parseInt(numberOfPeople, 10)
     }
   };
 
 }
 
-export function seatParty(id) {
-
+export function seatParty(partyId, tableId) {
+debugger;
   return {
     type: PARTY_SEATED,
     payload: {
-      id: parseInt(id, 10)
+      partyId: parseInt(partyId, 10),
+      tableId: parseInt(tableId, 10)
     }
   };
 }
@@ -36,7 +37,7 @@ export function leaveLine(id) {
   return {
     type: PARTY_LEFT,
     payload: {
-      id: parseInt(id, 10)
+      partyId: parseInt(id, 10)
     }
   };
 }

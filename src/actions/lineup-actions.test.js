@@ -17,7 +17,7 @@ describe('the lineup actions', () => {
     expect(action).to.deep.equal({
       type: lineupActions.PARTY_JOINED,
       payload: {
-        id: 1,
+        partyId: 1,
         numberOfPeople: 4
       }
     });
@@ -28,8 +28,8 @@ describe('the lineup actions', () => {
     const firstJoin = lineupActions.joinLine(4);
     const secondJoin = lineupActions.joinLine(1);
 
-    expect(firstJoin.payload.id).to.equal(1);
-    expect(secondJoin.payload.id).to.equal(2);
+    expect(firstJoin.payload.partyId).to.equal(1);
+    expect(secondJoin.payload.partyId).to.equal(2);
 
   });
   it('should create a FSA for leaving the line', () => {
@@ -37,22 +37,19 @@ describe('the lineup actions', () => {
     expect(leaveLine).to.deep.equal({
       type: lineupActions.PARTY_LEFT,
       payload: {
-        id: 1
+        partyId: 1
       }
     });
   });
 
   it('should create a FSA for being seated', () => {
     const leaveLine = lineupActions.seatParty(1);
-    expect(leaveLine).to.deep.equal({
-      type: lineupActions.PARTY_SEATED,
-      payload: {
-        id: 1
-      }
-    });
+    expect(leaveLine.type).to.equal(lineupActions.PARTY_SEATED);
+    expect(leaveLine.payload.partyId).to.be.equal(1);
+
   });
 
-  it('should convert the number of people to an integer',() => {
+  it('should convert the number of people to an integer', () => {
     const joinLine = lineupActions.joinLine('5');
     expect(joinLine.payload.numberOfPeople).to.equal(5);
 

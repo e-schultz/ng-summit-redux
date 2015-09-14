@@ -6,7 +6,7 @@
         <tables 
           table-id="{{:: table.get('id')}}" 
           table-status="{{table.get('status')}}" 
-          on-seat="diningRoom.seatParty(partyId)"
+          on-seat="diningRoom.seatParty(partyId, tableId)"
           number-of-seats ="{{:: table.get('numberOfSeats') }}"
           ></tables>
         

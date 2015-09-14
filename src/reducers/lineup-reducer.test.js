@@ -25,7 +25,7 @@ describe('the lineup reducer', () => {
     const initialState = lineup(undefined, 'reduxInitAction');
     const expectedState = fromJS({
       parties: [{
-        id: 1,
+        partyId: 1,
         numberOfPeople: 2
       }]
     });
@@ -33,7 +33,7 @@ describe('the lineup reducer', () => {
     const partyJoined = {
       type: PARTY_JOINED,
       payload: {
-        id: 1,
+        partyId: 1,
         numberOfPeople: 2
       }
     };
@@ -46,14 +46,14 @@ describe('the lineup reducer', () => {
   context('there is an existing lineup', () => {
     const THREE_PARTY_STATE = fromJS({
       parties: [{
-          id: 1,
+          partyId: 1,
           numberOfPeople: 2
           },
         {
-          id: 2,
+          partyId: 2,
           numberOfPeople: 1
           }, {
-          id: 3,
+          partyId: 3,
           numberOfPeople: 4
           }]
     });
@@ -65,17 +65,17 @@ describe('the lineup reducer', () => {
       const partySeated = {
         type: PARTY_SEATED,
         payload: {
-          id: 2
+          partyId: 2
         }
       };
 
       const expectedState = fromJS({
         parties: [{
-            id: 1,
+            partyId: 1,
             numberOfPeople: 2
           },
           {
-            id: 3,
+            partyId: 3,
             numberOfPeople: 4
           }]
       });
@@ -92,17 +92,17 @@ describe('the lineup reducer', () => {
       const partySeated = {
         type: PARTY_LEFT,
         payload: {
-          id: 2
+          partyId: 2
         }
       };
 
       const expectedState = fromJS({
         parties: [{
-            id: 1,
+            partyId: 1,
             numberOfPeople: 2
           },
           {
-            id: 3,
+            partyId: 3,
             numberOfPeople: 4
           }]
       });
