@@ -1,14 +1,11 @@
-<div class="container-fluid">
-    <div class="row">
-        <div ng-repeat="table in diningRoom.tables | mutable" class="col-lg-6">
-        <!--{{table.id}} -- {{table.numberOfSeats}} -- {{table.status}}-->
-
-        <tables 
-          table-id="{{:: table.get('id')}}" 
-          table-status="{{table.get('status')}}" 
-          on-seat="diningRoom.seatParty(partyId, tableId)"
-          number-of-seats ="{{:: table.get('numberOfSeats') }}"
-          ></tables>
-        
+<div class="panel panel-default">
+    <div class="panel-heading">Dining Room</div>
+    <div class="panel-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div ng-repeat="table in diningRoom.tables | mutable" class="col-lg-6">
+                    <tables table-id="{{:: table.get('id')}}" table-status="{{table.get('status')}}" on-seat="diningRoom.seatParty(partyId, tableId)" parties="diningRoom.parties" number-of-seats="{{:: table.get('numberOfSeats') }}"></tables>
+                </div>
+            </div>
         </div>
     </div>

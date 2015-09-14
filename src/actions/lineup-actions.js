@@ -23,7 +23,7 @@ export function joinLine(numberOfPeople) {
 }
 
 export function seatParty(partyId, tableId) {
-debugger;
+
   return {
     type: PARTY_SEATED,
     payload: {

@@ -1,9 +1,20 @@
-<div>
-    <div ng-show="table.tableStatus === 'CLEAN'">
-        <input ng-model="table.partyId">
-        <button type="button" ng-click="table.seatParty({partyId:table.partyId, tableId: table.tableId});">Seat Party</button>
+<div class="panel" ng-class="{'panel-primary': table.tableStatus === 'CLEAN'
+                             ,'panel-success' : table.tableStatus === 'OCCUPIED'
+                             ,'panel-danger' : table.tableStatus === 'DIRTY'}">
+    <div class="panel-heading">
+        Table Number: {{table.tableId}}
     </div>
-    <div ng-show="table.tableStatus === 'OCCUPIED'">
-    Take Order
+    <div class="panel-body">
+        <div ng-show="table.tableStatus === 'CLEAN'">
+            <select ng-model="table.partyId">
+                <option ng-repeat="party in table.parties | mutable" value="{{party.get('partyId')}}" ng-if="party.get('numberOfPeople') <= table.numberOfSeats">
+                    {{party.get('partyId')}} - {{party.get('numberOfPeople')}}
+                </option>
+            </select>
+            <button type="button" ng-click="table.seatParty({partyId:table.partyId, tableId: table.tableId});">Seat Party</button>
+        </div>
+        <div ng-show="table.tableStatus === 'OCCUPIED'">
+            Take Order
+        </div>
     </div>
 </div>

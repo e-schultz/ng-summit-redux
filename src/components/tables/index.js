@@ -14,7 +14,9 @@ export default angular
       scope: {
         tableId: '@',
         tableStatus: '@',
-        seatParty: '&onSeat'
+        seatParty: '&onSeat',
+        numberOfSeats: '@',
+        parties: '='
       }
     };
   })

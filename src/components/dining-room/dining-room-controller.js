@@ -3,7 +3,8 @@ export default class DiningRoomController {
     
 
     let _updateOn = (state) => ({
-      tables: state.tables
+      tables: state.tables,
+      parties: state.lineup.get('parties')
     });
     let disconnect = $ngRedux.connect(_updateOn, lineupActions)(this);
     $scope.$on('$destroy', () => disconnect());
