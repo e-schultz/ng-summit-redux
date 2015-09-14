@@ -1,0 +1,7 @@
+<div class="container-fluid">
+    <div class="row">
+        <div ng-repeat="table in diningRoom.tables | mutable" class="col-lg-6">
+        {{table}}
+        {{table.get('id')}} -- {{table.get('numberOfSeats')}}
+        </div>
+    </div>

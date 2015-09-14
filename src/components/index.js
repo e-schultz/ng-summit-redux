@@ -3,6 +3,7 @@ import globalDebug from './global-debug';
 import lineup from './lineup';
 import main from './main'; 
 import lineupSummary from './lineup-summary';
+import diningRoom from './dining-room';
 /* beautify preserve:end */
 
 export default angular
@@ -10,6 +11,7 @@ export default angular
     globalDebug,
     lineup,
     main,
-    lineupSummary
+    lineupSummary,
+    diningRoom
   ])
   .name;

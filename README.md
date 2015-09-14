@@ -33,15 +33,14 @@ Idea:
 # Data Structure
 
 ```
-[Resturant] --------- [Menu]-------[Drinks]
-  |      |               |
-[Line]   |             [Food]
+[Resturant] --------- [Menu]
+  |      |               
+[Line]   |             
       [Tables]
          | -- // don't think I want to go as granular as per-seat for simplicty
          |
-    .-------------.
-    |             |
-[Food Orders]  [Bar/Drink Orders]
+      [Order]
+
 ```
 
 # UI-ideas
@@ -88,7 +87,9 @@ Idea:
 * number of seats
 
 **Actions/Events**
-
+--- simplify it so a table is either clean / dirty / occupied  
+--- events place order / pay bill / seat
+--- 
 * seat customer
 * add items to order
 * remove items from order
@@ -101,13 +102,10 @@ Idea:
 
 * table id 
 * id
-* 0..N food line items
-  * foodId
-  * foodQty
-  * price (?)
-* 0..N drink line items
-  * drinkId
-  * drinkQty
+* 0..N line items
+  * id
+  * qty
+  * price (?) --- can derive from menuItem? do 
 
 # Menu - food items + drinks
 -- maybe just simplify to 'menuItems' with type drink/food, id, qty, price, desc
@@ -120,17 +118,3 @@ Idea:
 * stock
 * description
 
-
-## Food
-
-* id
-* qtyInStock
-* description
-* price
-
-## Drink
-
-* id
-* qtyInStock
-* description
-* price
