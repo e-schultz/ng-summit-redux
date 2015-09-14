@@ -4,6 +4,7 @@ import lineup from './lineup';
 import main from './main'; 
 import lineupSummary from './lineup-summary';
 import diningRoom from './dining-room';
+import tables from './tables';
 /* beautify preserve:end */
 
 export default angular
@@ -12,6 +13,7 @@ export default angular
     lineup,
     main,
     lineupSummary,
-    diningRoom
+    diningRoom,
+    tables
   ])
   .name;

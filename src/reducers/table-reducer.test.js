@@ -1,7 +1,7 @@
 /* beautify preserve:start */
 import table from './table-reducer';
 import {fromJS} from 'immutable';
-//import {PARTY_SEATED,PARTY_LEFT,PARTY_JOINED} from '../actions/lineup-actions.js';
+import {PARTY_SEATED} from '../actions/lineup-actions.js';
 import chai from 'chai';
 import chaiImmutable from 'chai-immutable';
 import {INITIAL_STATE, CLEAN, DIRTY, OCCUPIED} from './table-reducer';
@@ -20,7 +20,7 @@ describe.only('the table reducer', () => {
   it('should set the table to occupied when a party is seated', () => {
     const initialState = table(undefined, 'reduxInitAction');
     const seatedEvent = {
-      type: 'PARTY_SEATED',
+      type: PARTY_SEATED,
       payload: {
         id: 1
 

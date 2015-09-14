@@ -3,8 +3,8 @@ import DiningRoomController from './dining-room-controller';
 import diningRoomTemplate from './dining-room-tpl.html';
 
 export default angular
-  .module('app.components.tables', [])
-  .directive('tables', () => {
+  .module('app.components.diningRoom', [])
+  .directive('diningRoom', () => {
     return {
       restrict: 'E',
       controller: DiningRoomController,

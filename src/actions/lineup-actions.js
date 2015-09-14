@@ -16,17 +16,18 @@ export function joinLine(numberOfPeople) {
     type: PARTY_JOINED,
     payload: {
       id: ++partyIndex,
-      numberOfPeople: parseInt(numberOfPeople,10)
+      numberOfPeople: parseInt(numberOfPeople, 10)
     }
   };
 
 }
 
 export function seatParty(id) {
+
   return {
     type: PARTY_SEATED,
     payload: {
-      id
+      id: parseInt(id, 10)
     }
   };
 }
@@ -35,7 +36,7 @@ export function leaveLine(id) {
   return {
     type: PARTY_LEFT,
     payload: {
-      id
+      id: parseInt(id, 10)
     }
   };
 }

@@ -90,4 +90,10 @@ the total number of people in lne.
 // onto lineup-summary.js
 
 
- */
+TODO:
+
+* think I will leave 'seat party' out of the lineup list, and have it in the diningroom/table --- 
+  but when a party is seated, they automatically
+  get removed from the list. Leave 'leave line' in though for sake of demo?
+
+*/

@@ -1,7 +1,14 @@
 <div class="container-fluid">
     <div class="row">
         <div ng-repeat="table in diningRoom.tables | mutable" class="col-lg-6">
-        {{table}}
-        {{table.get('id')}} -- {{table.get('numberOfSeats')}}
+        <!--{{table.id}} -- {{table.numberOfSeats}} -- {{table.status}}-->
+
+        <tables 
+          table-id="{{:: table.get('id')}}" 
+          table-status="{{table.get('status')}}" 
+          on-seat="diningRoom.seatParty(partyId)"
+          number-of-seats ="{{:: table.get('numberOfSeats') }}"
+          ></tables>
+        
         </div>
     </div>

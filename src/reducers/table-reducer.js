@@ -1,6 +1,6 @@
 /* beautify preserve:start */
 import {fromJS} from 'immutable';
-//import {PARTY_SEATED,PARTY_LEFT,PARTY_JOINED} from '../actions/lineup-actions.js';
+import {PARTY_SEATED} from '../actions/lineup-actions.js';
 /* beautify preserve:end */
 
 export const CLEAN = 'CLEAN';
@@ -30,7 +30,7 @@ export const INITIAL_STATE = fromJS([{
 export default function tableReducer(state = INITIAL_STATE, action) {
   let findIndex = (collection, id) => collection.findIndex(n => n.get('id') === id);
   switch (action.type) {
-  case 'PARTY_SEATED':
+  case PARTY_SEATED:
     {
       let tableIndex = findIndex(state, action.payload.id);
       return state.setIn([tableIndex, 'status'], OCCUPIED);
