@@ -10,6 +10,10 @@ import router from './router';
 import ngImmutable from './lib/immutable-angular';
 import ngReduxRouter from 'redux-ui-router';
 import thunk from 'redux-thunk';
+// dev tools
+import { devTools, persistState } from 'redux-devtools';
+import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
+import React, { Component } from 'react';
 /* beautify preserve:end */
 
 const logger = createLogger({
@@ -29,9 +33,32 @@ export default angular
   ])
   .config(($ngReduxProvider, ngUiRouterActionsProvider) => {
     ngUiRouterActionsProvider.bindActionCreators(false);
-    $ngReduxProvider.createStoreWith(reducers, [thunk, 'ngUiRouterMiddleware','httpMiddleware', logger]);
+    $ngReduxProvider.createStoreWith(reducers, [thunk, 'ngUiRouterMiddleware','httpMiddleware', logger], [devTools(), persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))]);
+  }).run(($ngRedux, $rootScope) => {
+    React.render(
+      <App store={ $ngRedux }/>,
+      document.getElementById('devTools')
+    );
+
+    //To reflect state changes when disabling/enabling actions via the monitor
+    //there is probably a smarter way to achieve that
+    $ngRedux.subscribe(_ => {
+        $rootScope.$evalAsync(()=> console.log('Sync events'));
+    });
   })
   .name;
+
+   class App extends Component {
+  render() {
+    return (
+      <div>
+        <DebugPanel top right bottom>
+          <DevTools store={ this.props.store } monitor = { LogMonitor } visibleOnLoad= { false }/>
+        </DebugPanel>
+      </div>
+    );
+  }
+}
 
 /*
 

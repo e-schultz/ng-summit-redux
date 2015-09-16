@@ -6,7 +6,7 @@ export default function routerConfig($urlRouterProvider, $stateProvider) {
 
   $stateProvider
     .state('app', {
-      url: '/app',
+      url: '/app?debug_session',
       views: {
         '': {
           template: mainTemplate,
