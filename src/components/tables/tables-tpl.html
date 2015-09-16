@@ -1,5 +1,7 @@
-<div class="panel" ng-class="{'panel-primary': table.tableStatus === 'CLEAN'
-                             ,'panel-success' : table.tableStatus === 'OCCUPIED'
+<div class="panel" ng-class="{'panel-success': table.tableStatus === 'CLEAN'
+                             ,'panel-primary' : table.tableStatus === 'OCCUPIED' || table.tableStatus === 'ORDERING'
+                             ,'panel-warning' : table.tableStatus === 'ORDERED'
+                             ,'panel-info'   : table.tableStatus === 'HAS_FOOD'
                              ,'panel-danger' : table.tableStatus === 'DIRTY'}">
     <div class="panel-heading">
         Table Number: {{table.tableId}}
@@ -13,8 +15,13 @@
             </select>
             <button type="button" ng-click="table.seatParty({partyId:table.partyId, tableId: table.tableId});">Seat Party</button>
         </div>
+
         <div ng-show="table.tableStatus === 'OCCUPIED'">
-            Take Order
+            <button type="button" ng-click="table.startOrder({tableId: table.tableId})">Start Order</button>
+        </div>
+        <div ng-show="table.tableStatus === 'ORDERING'">
+        ... placing order
+        -{{table}}-
         </div>
     </div>
 </div>

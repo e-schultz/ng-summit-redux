@@ -2,7 +2,8 @@
 import lineup from './lineup-reducer';
 //import Immutable from 'immutable';
 import {fromJS} from 'immutable';
-import {PARTY_SEATED,PARTY_LEFT,PARTY_JOINED} from '../actions/lineup-actions.js';
+import {PARTY_LEFT,PARTY_JOINED} from '../actions/lineup-actions.js';
+import {PARTY_SEATED} from '../actions/table-actions.js';
 import chai from 'chai';
 import chaiImmutable from 'chai-immutable';
 chai.use(chaiImmutable);

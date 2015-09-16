@@ -8,6 +8,8 @@ import components from './components';
 import actions from './actions';
 import router from './router';
 import ngImmutable from './lib/immutable-angular';
+import ngReduxRouter from 'redux-ui-router';
+import thunk from 'redux-thunk';
 /* beautify preserve:end */
 
 const logger = createLogger({
@@ -22,10 +24,12 @@ export default angular
     components,
     actions,
     router,
-    ngImmutable
+    ngImmutable,
+    ngReduxRouter
   ])
-  .config(($ngReduxProvider) => {
-    $ngReduxProvider.createStoreWith(reducers, ['httpMiddleware', logger]);
+  .config(($ngReduxProvider, ngUiRouterActionsProvider) => {
+    ngUiRouterActionsProvider.bindActionCreators(false);
+    $ngReduxProvider.createStoreWith(reducers, [thunk, 'ngUiRouterMiddleware','httpMiddleware', logger]);
   })
   .name;
 

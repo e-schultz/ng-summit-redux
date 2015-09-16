@@ -42,12 +42,7 @@ describe('the lineup actions', () => {
     });
   });
 
-  it('should create a FSA for being seated', () => {
-    const leaveLine = lineupActions.seatParty(1);
-    expect(leaveLine.type).to.equal(lineupActions.PARTY_SEATED);
-    expect(leaveLine.payload.partyId).to.be.equal(1);
 
-  });
 
   it('should convert the number of people to an integer', () => {
     const joinLine = lineupActions.joinLine('5');

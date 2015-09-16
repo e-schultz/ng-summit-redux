@@ -29,7 +29,11 @@ module.exports = {
     extensions: ['', '.js'],
     alias: {
       'react': path.join(__dirname, '..', '..', 'node_modules', 'react')
-    }
+    },
+    fallback: path.join(__dirname, 'node_modules')
+  },
+  resolveLoader: {
+    fallback: path.join(__dirname, 'node_modules')
   },
   module: {
     loaders: [{

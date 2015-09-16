@@ -4,7 +4,16 @@
         <div class="container-fluid">
             <div class="row">
                 <div ng-repeat="table in diningRoom.tables | mutable" class="col-lg-6">
-                    <tables table-id="{{:: table.get('id')}}" table-status="{{table.get('status')}}" on-seat="diningRoom.seatParty(partyId, tableId)" parties="diningRoom.parties" number-of-seats="{{:: table.get('numberOfSeats') }}"></tables>
+                    <tables 
+                    table-id="{{:: table.get('id')}}" 
+                    table-status="{{table.get('status')}}" 
+                    on-seated="diningRoom.seatParty(partyId, tableId)" 
+                    parties="diningRoom.parties" 
+                    number-of-seats="{{:: table.get('numberOfSeats') }}"
+                    on-order-started="diningRoom.startOrder(tableId)"
+                    on-order-completed="diningRoom.deliverOrder(tableId,menuItems)"
+                    menu="diningRoom.menu"
+                    ></tables>
                 </div>
             </div>
         </div>

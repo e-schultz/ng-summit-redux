@@ -1,6 +1,6 @@
 export const PARTY_JOINED = '@@ngSummitRedux/partyJoined';
 export const PARTY_LEFT = '@@ngSummitRedux/partyLeft';
-export const PARTY_SEATED = '@@ngSummitRedux/partySeated';
+
 
 // TODO: Move this out somewhere else - pouchDB/etc?
 let partyIndex = 0;
@@ -22,16 +22,7 @@ export function joinLine(numberOfPeople) {
 
 }
 
-export function seatParty(partyId, tableId) {
 
-  return {
-    type: PARTY_SEATED,
-    payload: {
-      partyId: parseInt(partyId, 10),
-      tableId: parseInt(tableId, 10)
-    }
-  };
-}
 
 export function leaveLine(id) {
   return {
@@ -43,7 +34,7 @@ export function leaveLine(id) {
 }
 
 export default {
-  joinLine, seatParty, leaveLine
+  joinLine, leaveLine
 };
 /*
 

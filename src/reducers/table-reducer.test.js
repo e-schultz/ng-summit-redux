@@ -1,7 +1,7 @@
 /* beautify preserve:start */
 import table from './table-reducer';
 import {fromJS} from 'immutable';
-import {PARTY_SEATED} from '../actions/lineup-actions.js';
+import {PARTY_SEATED} from '../actions/table-actions.js';
 import chai from 'chai';
 import chaiImmutable from 'chai-immutable';
 import {INITIAL_STATE, CLEAN, DIRTY, OCCUPIED} from './table-reducer';

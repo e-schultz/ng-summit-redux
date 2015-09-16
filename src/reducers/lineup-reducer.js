@@ -1,6 +1,7 @@
 /* beautify preserve:start */
 import {fromJS} from 'immutable';
-import {PARTY_SEATED,PARTY_LEFT,PARTY_JOINED} from '../actions/lineup-actions.js';
+import {PARTY_LEFT,PARTY_JOINED} from '../actions/lineup-actions.js';
+import {PARTY_SEATED} from '../actions/table-actions.js';
 /* beautify preserve:end */
 
 /**
