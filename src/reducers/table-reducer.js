@@ -1,6 +1,6 @@
 /* beautify preserve:start */
 import {fromJS} from 'immutable';
-import {PARTY_SEATED, ORDER_STARTED} from '../actions/table-actions.js';
+import {PARTY_SEATED, ORDER_STARTED, ITEM_ADDED, ITEM_REMOVED} from '../actions/table-actions.js';
 /* beautify preserve:end */
 
 export const CLEAN = 'CLEAN';
@@ -14,48 +14,63 @@ export const INITIAL_STATE = fromJS([{
     id: 1,
     numberOfSeats: 2,
     status: CLEAN,
-    order:[]
+    order: {}
 }, {
     id: 2,
     numberOfSeats: 4,
     status: CLEAN,
-    order:[]
+    order: {}
 },
   {
     id: 3,
     numberOfSeats: 4,
     status: CLEAN,
-    order:[]
+    order: {}
 },
   {
     id: 4,
     numberOfSeats: 2,
     status: CLEAN,
-    order:[]
+    order: {}
 }]);
 
 export default function tableReducer(state = INITIAL_STATE, action) {
   let findIndex = (collection, id) => collection.findIndex(n => n.get('id') === id);
-
+  
+  if (!action.type || !action.payload) {
+    return state;
+  }
+  
+  let tableIndex = findIndex(state, action.payload.tableId);
   switch (action.type) {
   case PARTY_SEATED:
     {
-      let tableIndex = findIndex(state, action.payload.tableId);
+
       return state.setIn([tableIndex, 'status'], OCCUPIED);
     }
   case ORDER_STARTED:
     {
-      let tableIndex = findIndex(state, action.payload.tableId);
+
       return state.setIn([tableIndex, 'status'], ORDERING);
     }
+  case ITEM_ADDED:
+    {
+
+      return state.updateIn([tableIndex, 'order', action.payload.menuItemId], 0, value => value + 1);
+    }
+  case ITEM_REMOVED:
+    {
+      return state;
+    }
+
   case 'CUSTOMER_PAID':
     {
-      let tableIndex = findIndex(state, action.payload.tableId);
+
       return state.setIn([tableIndex, 'status'], DIRTY);
     }
   case 'TABLE_CLEANED':
     {
-      let tableIndex = findIndex(state, action.payload.tableId);
+
       return state.setIn([tableIndex, 'status'], CLEAN);
     }
   case 'ORDER_PLACED':

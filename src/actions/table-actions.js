@@ -48,7 +48,7 @@ export function addItemToOrder(tableId, menuItemId) {
     type: ITEM_ADDED,
     payload: {
       tableId: parseInt(tableId, 10),
-      menuItemId: parseInt(menuItemId, 10)
+      menuItemId: menuItemId
     }
   };
 }
