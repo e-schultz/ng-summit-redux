@@ -40,7 +40,7 @@ export default function tableReducer(state = INITIAL_STATE, action) {
   if (!action.type || !action.payload) {
     return state;
   }
-  
+
   let tableIndex = findIndex(state, action.payload.tableId);
   switch (action.type) {
   case PARTY_SEATED:
@@ -55,8 +55,9 @@ export default function tableReducer(state = INITIAL_STATE, action) {
     }
   case ITEM_ADDED:
     {
-
-      return state.updateIn([tableIndex, 'order', action.payload.menuItemId], 0, value => value + 1);
+      let result = state.updateIn([tableIndex, 'order', action.payload.menuItemId], 0, value => value + 1);
+      console.log('the result',result.toJS());
+      return result;
     }
   case ITEM_REMOVED:
     {
