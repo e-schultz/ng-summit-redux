@@ -18,7 +18,7 @@ export default angular
         startOrder: '&onOrderStarted',
         addItemToOrder: '&onAddItemToOrder',
         removeItemFromOrder: '&onRemoveItemFromOrder',
-        finishOrder: '&onFinishOrder',
+        completeOrder: '&onCompleteOrder',
         numberOfSeats: '@',
         parties: '=',
         menu: '='

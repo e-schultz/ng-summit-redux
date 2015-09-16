@@ -15,7 +15,8 @@ export default angular
         tableId: '@',
         items: '=menuItems',
         addItemToOrder: '&onAddItemToOrder',
-        removeItemFromOrder: '&onRemoveItemFromOrder'
+        removeItemFromOrder: '&onRemoveItemFromOrder',
+        completeOrder: '&onCompleteOrder'
       }
     };
   })

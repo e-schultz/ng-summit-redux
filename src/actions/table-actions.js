@@ -23,12 +23,12 @@ export function startOrder(tableId) {
   };
 }
 
-export function completeOrder(tableId, menuItems) {
+export function completeOrder(tableId) {
+  debugger;
   return {
     type: ORDER_COMPLETED,
     payload: {
-      tableId: parseInt(tableId, 10),
-      menuItems: menuItems
+      tableId: parseInt(tableId, 10)
     }
   };
 }

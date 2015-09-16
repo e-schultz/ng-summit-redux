@@ -16,4 +16,8 @@ export default class Tables {
       menuItemId: menuItemId
     });
   }
+  finishOrder(tableId) {
+    debugger;
+    this.completeOrder({tableId});
+  }
 }

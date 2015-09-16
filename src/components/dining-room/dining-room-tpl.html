@@ -11,7 +11,7 @@
                     parties="diningRoom.parties" 
                     number-of-seats="{{:: table.get('numberOfSeats') }}"
                     on-order-started="diningRoom.startOrder(tableId)"
-                    on-order-completed="diningRoom.deliverOrder(tableId,menuItems)"
+                    on-complete-order="diningRoom.completeOrder(tableId)"
                     on-add-item-to-order="diningRoom.addItemToOrder(tableId, menuItemId)"
                     menu="diningRoom.menu"
                     ></tables>

@@ -1,6 +1,6 @@
 /* beautify preserve:start */
 import {fromJS} from 'immutable';
-import {PARTY_SEATED, ORDER_STARTED, ITEM_ADDED, ITEM_REMOVED} from '../actions/table-actions.js';
+import {PARTY_SEATED, ORDER_STARTED, ITEM_ADDED, ITEM_REMOVED, ORDER_COMPLETED} from '../actions/table-actions.js';
 /* beautify preserve:end */
 
 export const CLEAN = 'CLEAN';
@@ -36,11 +36,11 @@ export const INITIAL_STATE = fromJS([{
 
 export default function tableReducer(state = INITIAL_STATE, action) {
   let findIndex = (collection, id) => collection.findIndex(n => n.get('id') === id);
-  
+
   if (!action.type || !action.payload) {
     return state;
   }
-  
+
   let tableIndex = findIndex(state, action.payload.tableId);
   switch (action.type) {
   case PARTY_SEATED:
@@ -60,7 +60,7 @@ export default function tableReducer(state = INITIAL_STATE, action) {
     }
   case ITEM_REMOVED:
     {
-      return state;
+      return state.updateIn([tableIndex, 'order', action.payload.menuItemId], 0, value => value === 0 ? 0 : value - 1);
     }
 
   case 'CUSTOMER_PAID':
@@ -73,9 +73,9 @@ export default function tableReducer(state = INITIAL_STATE, action) {
 
       return state.setIn([tableIndex, 'status'], CLEAN);
     }
-  case 'ORDER_PLACED':
+  case ORDER_COMPLETED:
     {
-      return state;
+       return state.setIn([tableIndex, 'status'], ORDERED);
     }
   default:
     return state;
