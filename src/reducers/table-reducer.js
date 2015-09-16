@@ -1,6 +1,6 @@
 /* beautify preserve:start */
 import {fromJS} from 'immutable';
-import {PARTY_SEATED, ORDER_STARTED, ITEM_ADDED, ITEM_REMOVED, ORDER_COMPLETED} from '../actions/table-actions.js';
+import {PARTY_SEATED, ORDER_STARTED, ITEM_ADDED, ITEM_REMOVED, ORDER_COMPLETED, ORDER_DELIVERED} from '../actions/table-actions.js';
 /* beautify preserve:end */
 
 export const CLEAN = 'CLEAN';
@@ -60,6 +60,7 @@ export default function tableReducer(state = INITIAL_STATE, action) {
     }
   case ITEM_REMOVED:
     {
+      
       return state.updateIn([tableIndex, 'order', action.payload.menuItemId], 0, value => value === 0 ? 0 : value - 1);
     }
 
@@ -76,6 +77,10 @@ export default function tableReducer(state = INITIAL_STATE, action) {
   case ORDER_COMPLETED:
     {
        return state.setIn([tableIndex, 'status'], ORDERED);
+    }
+    case ORDER_DELIVERED:
+    {
+     return state.setIn([tableIndex, 'status'], HAS_FOOD); 
     }
   default:
     return state;

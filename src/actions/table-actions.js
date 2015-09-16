@@ -58,7 +58,7 @@ export function removeItemFromOrder(tableId, menuItemId) {
     type: ITEM_REMOVED,
     payload: {
       tableId: parseInt(tableId, 10),
-      menuItemId: parseInt(menuItemId, 10)
+      menuItemId: menuItemId
     }
   };
 }

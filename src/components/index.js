@@ -6,6 +6,7 @@ import lineupSummary from './lineup-summary';
 import diningRoom from './dining-room';
 import tables from './tables';
 import pendingOrders from './pending-orders';
+import completedOrders from './completed-orders';
 import orders from './orders';
 import menu from './menu';
 /* beautify preserve:end */
@@ -19,6 +20,7 @@ export default angular
     diningRoom,
     tables,
     pendingOrders,
+    completedOrders,
     orders,
     menu
   ])

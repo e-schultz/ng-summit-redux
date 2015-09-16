@@ -38,7 +38,7 @@ export default function routerConfig($urlRouterProvider, $stateProvider) {
       url: '/completed',
       views: {
         'orders@app.orders': {
-          template: 'completed'
+          template: '<completed-orders></completed-orders>'
         }
       }
     }).state('app.orders.delivered', {
