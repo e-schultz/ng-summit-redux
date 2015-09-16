@@ -17,7 +17,7 @@ export default class Tables {
     });
   }
   finishOrder(tableId) {
-    debugger;
+    
     this.completeOrder({tableId});
   }
 }
