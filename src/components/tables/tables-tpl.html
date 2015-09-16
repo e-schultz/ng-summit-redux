@@ -20,8 +20,9 @@
             <button type="button" ng-click="table.startOrder({tableId: table.tableId})">Start Order</button>
         </div>
         <div ng-show="table.tableStatus === 'ORDERING'">
-        ... placing order
-        -{{table}}-
+            <menu 
+                menu-items="table.menu"
+                table-id="table.id"></menu>
         </div>
     </div>
 </div>

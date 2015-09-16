@@ -7,6 +7,7 @@ import diningRoom from './dining-room';
 import tables from './tables';
 import pendingOrders from './pending-orders';
 import orders from './orders';
+import menu from './menu';
 /* beautify preserve:end */
 
 export default angular
@@ -18,6 +19,7 @@ export default angular
     diningRoom,
     tables,
     pendingOrders,
-    orders
+    orders,
+    menu
   ])
   .name;
