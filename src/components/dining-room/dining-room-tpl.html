@@ -12,6 +12,7 @@
                     number-of-seats="{{:: table.get('numberOfSeats') }}"
                     on-order-started="diningRoom.startOrder(tableId)"
                     on-order-completed="diningRoom.deliverOrder(tableId,menuItems)"
+                    on-add-item-to-order="diningRoom.addItemToOrder(tableId, menuItemId)"
                     menu="diningRoom.menu"
                     ></tables>
                 </div>

@@ -16,6 +16,9 @@ export default angular
         tableStatus: '@',
         seatParty: '&onSeated',
         startOrder: '&onOrderStarted',
+        addItemToOrder: '&onAddItemToOrder',
+        removeItemFromOrder: '&onRemoveItemFromOrder',
+        finishOrder: '&onFinishOrder',
         numberOfSeats: '@',
         parties: '=',
         menu: '='

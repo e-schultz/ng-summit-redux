@@ -13,7 +13,9 @@ export default angular
       template: menuTemplate,
       scope: {
         tableId: '@',
-        items: '=menuItems'
+        items: '=menuItems',
+        addItemToOrder: '&onAddItemToOrder',
+        removeItemFromOrder: '&onRemoveItemFromOrder'
       }
     };
   })
