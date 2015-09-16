@@ -4,8 +4,8 @@
     </div>
     <div class="panel-body">
         <ul class="list-group">
-            <li class="list-group-item" ng-repeat="item in menu.menu | mutable">
-                {{item.get('description')}} - {{item.get('price')}}
+            <li class="list-group-item" ng-repeat="item in menu.items | mutable">
+                {{item.get('description')}}
                 <div class="btn btn-group" role="group">  
                     <button type="button" 
                       ng-click="menu.addItemToOrder({tableId: menu.tableId, menuItemId: item.get('menuId')})" 
@@ -13,12 +13,8 @@
                     <button type="button" 
                       ng-click="menu.removeItemFromOrder({tableId: menu.tableId, menuItemId: item.get('menuId')})" 
                       class="btn btn-default">-</button>
-
-                      
-                      
                 </div>
             </li>
-            {{menu}}
         </ul>
     </div>
 </div>
