@@ -8,7 +8,7 @@ export default angular
     return {
       restrict: 'E',
       controller: PendingOrdersController,
-      controllerAs: 'lineupSummary',
+      controllerAs: 'pendingOrders',
       bindToController: true,
       template: pendingOrdersTemplate,
       scope: {}
