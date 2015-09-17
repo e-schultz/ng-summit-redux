@@ -45,7 +45,7 @@ export default angular
     
         //$rootScope.$evalAsync(()=> console.log('Sync events'));
         $ngRedux.subscribe(_ => {
-          $timeout($rootScope.$apply, 100);
+          $timeout(()=>$rootScope.$apply(), 100);
         //setTimeout($rootScope.$apply, 100);
     
     });
