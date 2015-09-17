@@ -1,8 +1,9 @@
 /* beautify preserve:start */
 import {ORDERED} from '../../reducers/table-reducer';
+import tableActions from '../../actions/table-actions';
 /* beautify preserve:end */
 export default class CompletedOrdersController {
-  constructor($ngRedux, $scope, tableActions) {
+  constructor($ngRedux, $scope) {
 
     let disconnect = $ngRedux.connect(state => this.onUpdate(state), tableActions)(this);
 

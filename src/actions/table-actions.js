@@ -24,7 +24,7 @@ export function startOrder(tableId) {
 }
 
 export function completeOrder(tableId) {
-  debugger;
+  
   return {
     type: ORDER_COMPLETED,
     payload: {

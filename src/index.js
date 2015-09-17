@@ -5,7 +5,6 @@ import createLogger from 'redux-logger';
 import ngHttpMiddleware from './middleware/http';
 import reducers from './reducers';
 import components from './components';
-import actions from './actions';
 import router from './router';
 import ngImmutable from './lib/immutable-angular';
 import ngReduxRouter from 'redux-ui-router';
@@ -26,7 +25,6 @@ export default angular
     ngRedux,
     ngHttpMiddleware,
     components,
-    actions,
     router,
     ngImmutable,
     ngReduxRouter

@@ -1,8 +1,9 @@
-export default class MainController {
-  constructor($ngRedux, lineupActions, ngUiRouterActions, $scope) {
-    this.$ngRedux = $ngRedux;
-    this.lineupActions = lineupActions;
+import lineupActions from '../../actions/lineup-actions';
 
+export default class MainController {
+  constructor($ngRedux, ngUiRouterActions, $scope) {
+    this.$ngRedux = $ngRedux;
+    
     let disconnect = $ngRedux.connect(state => this.onUpdate(state), ngUiRouterActions)(this);
     $scope.$on('$destroy', () => disconnect());
 
@@ -15,7 +16,7 @@ export default class MainController {
     };
   }
   populate() {
-    [1, 2, 2, 4, 2, 1, 2, 4].forEach(n => this.$ngRedux.dispatch(this.lineupActions.joinLine(n)));
+    [1, 2, 2, 4, 2, 1, 2, 4].forEach(n => this.$ngRedux.dispatch(lineupActions.joinLine(n)));
 
   }
 

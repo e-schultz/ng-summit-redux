@@ -1,5 +1,7 @@
+import lineupActions from '../../actions/lineup-actions';
+
 export default class LineupController {
-  constructor($ngRedux, $scope, lineupActions) {
+  constructor($ngRedux, $scope) {
 
     let disconnect = $ngRedux.connect(state => this.onUpdate(state), lineupActions)(this);
     $scope.$on('$destroy', () => disconnect());
