@@ -1,5 +1,5 @@
-export const PARTY_JOINED = '@@ngSummitRedux/partyJoined';
-export const PARTY_LEFT = '@@ngSummitRedux/partyLeft';
+export const PARTY_JOINED = 'PARTY_JOINED';
+export const PARTY_LEFT = 'PARTY_LEFT';
 
 
 // TODO: Move this out somewhere else - pouchDB/etc?

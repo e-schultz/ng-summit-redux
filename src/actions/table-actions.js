@@ -1,9 +1,9 @@
-export const ORDER_STARTED = '@ngSummitRedux/ORDER_STARTED';
-export const ORDER_COMPLETED = '@ngSummitRedux/ORDER_COMPLETED';
-export const ORDER_DELIVERED = '@ngSummitRedux/ORDER_DELIVERED';
-export const PARTY_SEATED = '@@ngSummitRedux/PARTY_SEATED';
-export const ITEM_ADDED = '@@ngSummitRedux/ITEM_ADDED';
-export const ITEM_REMOVED = '@@ngSummitRedux/ITEM_REMOVED';
+export const ORDER_STARTED = 'ORDER_STARTED';
+export const ORDER_COMPLETED = 'ORDER_COMPLETED';
+export const ORDER_DELIVERED = 'ORDER_DELIVERED';
+export const PARTY_SEATED = 'PARTY_SEATED';
+export const ITEM_ADDED = 'ITEM_ADDED';
+export const ITEM_REMOVED = 'ITEM_REMOVED';
 export function seatParty(partyId, tableId) {
 
   return {
