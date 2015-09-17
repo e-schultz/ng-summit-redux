@@ -29,9 +29,8 @@ export default angular
     ngImmutable,
     ngReduxRouter
   ])
-  .config(($ngReduxProvider, ngUiRouterActionsProvider) => {
-    ngUiRouterActionsProvider.bindActionCreators(false);
-    $ngReduxProvider.createStoreWith(reducers, [thunk, 'ngUiRouterMiddleware','httpMiddleware', logger], [devTools(), persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))]);
+  .config(($ngReduxProvider) => {
+    $ngReduxProvider.createStoreWith(reducers, [thunk, logger, 'ngUiRouterMiddleware','httpMiddleware'], [devTools(), persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))]);
   }).run(($ngRedux, $rootScope, $timeout) => {
     React.render(
       <App store={ $ngRedux }/>,

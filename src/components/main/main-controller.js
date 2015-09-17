@@ -7,7 +7,6 @@ export default class MainController {
     let disconnect = $ngRedux.connect(state => this.onUpdate(state), ngUiRouterActions)(this);
     $scope.$on('$destroy', () => disconnect());
 
-    this.stateGoTest = (state) => ngUiRouterActions.stateGo(state);
   }
 
   onUpdate(state) {
