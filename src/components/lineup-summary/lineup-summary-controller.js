@@ -1,16 +1,15 @@
 export default class LineupSummaryController {
   constructor($ngRedux, $scope) {
 
-    let _onChange = (state) => {
-
-      return {
-        total: state.lineup.get('parties').reduce((acc, val) => acc + val.get('numberOfPeople'), 0)
-      };
-    };
-
-    let disconnect = $ngRedux.connect(_onChange)(this);
+    let disconnect = $ngRedux.connect(state => this.onUpdate(state))(this);
 
     $scope.$on('$destroy', () => disconnect());
+  }
+
+  onUpdate(state) {
+    return {
+      total: state.lineup.get('parties').reduce((acc, val) => acc + val.get('numberOfPeople'), 0)
+    };
   }
 };
 

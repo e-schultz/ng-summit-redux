@@ -12,6 +12,7 @@
   <div class="col-xs-12">
   
   <ul class="nav nav-tabs">
+
     <li role="presentation" ng-class="{'active': main.currentStateName === 'app.orders.pending'}"><a ng-click="main.stateGo('app.orders.pending')">Pending Orders</a></li>
     <li role="presentation"  ng-class="{'active': main.currentStateName === 'app.orders.completed'}"><a ng-click="main.stateGo('app.orders.completed')">Completed Orders</a></li>
     <li role="presentation"  ng-class="{'active': main.currentStateName === 'app.orders.delivered'}"><a ng-click="main.stateGo('app.orders.delivered')">Delivered Orders</a></li>

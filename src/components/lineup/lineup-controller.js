@@ -1,19 +1,15 @@
 export default class LineupController {
   constructor($ngRedux, $scope, lineupActions) {
 
-
-    let _onChange = (state) => {
-      
-      return {
-        parties: state.lineup.get('parties'),
-        numberOfPeople: null // dont have this initially
-      };
-    };
-
-    let disconnect = $ngRedux.connect(_onChange, lineupActions)(this);
-
-  
+    let disconnect = $ngRedux.connect(state => this.onUpdate(state), lineupActions)(this);
     $scope.$on('$destroy', () => disconnect());
+  }
+
+  onUpdate(state) {
+    return {
+      parties: state.lineup.get('parties'),
+      numberOfPeople: null // dont have this initially
+    };
   }
 };
 
