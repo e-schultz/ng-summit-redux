@@ -33,12 +33,25 @@ export const INITIAL_STATE = fromJS([{
 }]);
 
 export default function tableReducer(state = INITIAL_STATE, action) {
-  let findIndex = (collection, id) => collection.findIndex(n => n.get('id') === id);
+  const findIndex = (collection, id) => collection.findIndex(n => n.get('id') === id);
 
   if (!action.type || !action.payload) {
     return state;
   }
+  const tableIndex = findIndex(state, action.payload.tableId);
+  const actions = {
+    [PARTY_SEATED]: (state) => state.setIn([tableIndex, 'status'], OCCUPIED),
+    [ORDER_STARTED]:  (state) => state.setIn([tableIndex, 'status'], ORDERING),
+    [ITEM_ADDED]: (state) => state.updateIn([tableIndex, 'order', action.payload.menuItemId], 0, value => value + 1),
+    [ITEM_REMOVED]: (state) => state.updateIn([tableIndex, 'order', action.payload.menuItemId], 0, value => value === 0 ? 0 : value - 1),
+    [CUSTOMER_PAID]: (state) => state.setIn([tableIndex, 'status'], DIRTY),
+    [TABLE_CLEANED]: (state) => state.setIn([tableIndex, 'status'], CLEAN),
+    [ORDER_COMPLETED]: (state) => state.setIn([tableIndex, 'status'], ORDERED),
+    [ORDER_DELIVERED]: (state) => state.setIn([tableIndex, 'status'], HAS_FOOD)
+  };
 
+  return actions[action.type] ? actions[action.type](state) : state;
+/*
   let tableIndex = findIndex(state, action.payload.tableId);
   switch (action.type) {
   case PARTY_SEATED:
@@ -82,5 +95,5 @@ export default function tableReducer(state = INITIAL_STATE, action) {
     }
   default:
     return state;
-  }
+  }*/
 }
