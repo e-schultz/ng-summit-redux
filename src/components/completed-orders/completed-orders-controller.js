@@ -1,5 +1,5 @@
 /* beautify preserve:start */
-import {ORDERED} from '../../reducers/table-reducer';
+import {ORDERED} from '../../constants';
 import tableActions from '../../actions/table-actions';
 /* beautify preserve:end */
 export default class CompletedOrdersController {

@@ -4,7 +4,8 @@ import {fromJS} from 'immutable';
 import {PARTY_SEATED} from '../actions/table-actions.js';
 import chai from 'chai';
 import chaiImmutable from 'chai-immutable';
-import {INITIAL_STATE, CLEAN, DIRTY, OCCUPIED} from './table-reducer';
+import {INITIAL_STATE} from './table-reducer';
+import {CLEAN, DIRTY, OCCUPIED} from '../constants';
 chai.use(chaiImmutable);
 /* beautify preserve:end */
 

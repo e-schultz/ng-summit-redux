@@ -1,5 +1,5 @@
 /* beautify preserve:start */
-import {ORDERING} from '../../reducers/table-reducer';
+import {ORDERING} from '../../constants';
 /* beautify preserve:end */
 export default class PendingOrdersController {
   constructor($ngRedux, $scope) {

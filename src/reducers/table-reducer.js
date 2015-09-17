@@ -1,14 +1,12 @@
 /* beautify preserve:start */
 import {fromJS} from 'immutable';
-import {PARTY_SEATED, ORDER_STARTED, ITEM_ADDED, ITEM_REMOVED, ORDER_COMPLETED, ORDER_DELIVERED} from '../actions/table-actions.js';
+import {
+  PARTY_SEATED, ORDER_STARTED, ITEM_ADDED, ITEM_REMOVED, ORDER_COMPLETED, ORDER_DELIVERED
+}
+from '../actions/table-actions.js';
+import {CLEAN, DIRTY, OCCUPIED, ORDERING, ORDERED, HAS_FOOD} from '../constants';
 /* beautify preserve:end */
 
-export const CLEAN = 'CLEAN';
-export const DIRTY = 'DIRTY';
-export const OCCUPIED = 'OCCUPIED';
-export const ORDERING = 'ORDERING';
-export const ORDERED = 'ORDERED';
-export const HAS_FOOD = 'HAS_FOOD';
 
 export const INITIAL_STATE = fromJS([{
     id: 1,
