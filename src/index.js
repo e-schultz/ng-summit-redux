@@ -34,7 +34,7 @@ export default angular
   .config(($ngReduxProvider, ngUiRouterActionsProvider) => {
     ngUiRouterActionsProvider.bindActionCreators(false);
     $ngReduxProvider.createStoreWith(reducers, [thunk, 'ngUiRouterMiddleware','httpMiddleware', logger], [devTools(), persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))]);
-  }).run(($ngRedux, $rootScope) => {
+  }).run(($ngRedux, $rootScope, $timeout) => {
     React.render(
       <App store={ $ngRedux }/>,
       document.getElementById('devTools')
@@ -42,8 +42,12 @@ export default angular
 
     //To reflect state changes when disabling/enabling actions via the monitor
     //there is probably a smarter way to achieve that
-    $ngRedux.subscribe(_ => {
-        $rootScope.$evalAsync(()=> console.log('Sync events'));
+    
+        //$rootScope.$evalAsync(()=> console.log('Sync events'));
+        $ngRedux.subscribe(_ => {
+          $timeout($rootScope.$apply, 100);
+        //setTimeout($rootScope.$apply, 100);
+    
     });
   })
   .name;

@@ -22,9 +22,9 @@
         <div ng-show="table.tableStatus === 'ORDERING'">
             <menu 
                 menu-items="table.menu"
-                on-add-item-to-order="table.addItem(tableId, menuItemId)"
-                on-remove-item-from-order="table.removeItem(tableId, menuItemId)"
-                on-complete-order="table.finishOrder(tableId)"
+                on-add-item-to-order="table.addItemToOrder({tableId: tableId, menuItemId:menuItemId})"
+                on-remove-item-from-order="table.removeItemFromOrder({tableId: tableId, menuItemId:menuItemId})"
+                on-complete-order="table.completeOrder({tableId:tableId})"
                 table-id="{{table.tableId}}"></menu>
         </div>
     </div>
