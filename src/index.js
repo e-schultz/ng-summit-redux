@@ -30,6 +30,7 @@ export default angular
     ngReduxRouter
   ])
   .config(($ngReduxProvider) => {
+    
     $ngReduxProvider.createStoreWith(reducers, [thunk, logger, 'ngUiRouterMiddleware','httpMiddleware'], [devTools(), persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))]);
   }).run(($ngRedux, $rootScope, $timeout) => {
     React.render(
