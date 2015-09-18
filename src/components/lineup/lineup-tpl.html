@@ -5,18 +5,13 @@
             <li class="list-group-item" ng-repeat="party in lineup.parties | mutable">
                 {{party.get('partyId')}} - {{party.get('numberOfPeople')}}
                 <div class="btn btn-group" role="group">
-                <button type="button" 
-                    class="btn btn-default" 
-                    ng-click="lineup.seatParty(party.get('id'))">Seat Party</button>
-                <button type="button" 
-                    class="btn btn-default"
-                    ng-click="lineup.leaveLine(party.get('id'))"
-                    >X</button>
+                    <button type="button" class="btn btn-default" ng-click="lineup.leaveLine(party.get('id'))">X</button>
                 </div>
             </li>
         </ul>
         <input ng-model="lineup.numberOfPeople">
-        <button type="button" ng-click="lineup.joinLine(lineup.numberOfPeople)">New Party</button>
+        <button type="button" ng-click="lineup.joinLine(lineup.numberOfPeople)" ng-disabled="lineup.numberOfPeople > 4">New Party</button>
+        <div ng-show="lineup.numberOfPeople > 4">Can't seat more than 4 people</div>
     </div>
     <lineup-summary>
 </div>
