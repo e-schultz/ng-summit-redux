@@ -14,7 +14,8 @@ module.exports = {
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/dev-server',
     './src/index',
-    './src/simple-party/index'
+    './src/simple-party/index',
+    './src/simple-party-dev-tools/index'
   ],
   output: {
     path: path.join(__dirname, 'dist'),

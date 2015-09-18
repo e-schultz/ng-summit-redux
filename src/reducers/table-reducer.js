@@ -1,5 +1,5 @@
 /* beautify preserve:start */
-import {fromJS} from 'immutable';
+import {fromJS, List} from 'immutable';
 import {
   PARTY_SEATED, ORDER_STARTED, ITEM_ADDED, ITEM_REMOVED, ORDER_COMPLETED, ORDER_DELIVERED
 }
@@ -32,6 +32,7 @@ export const INITIAL_STATE = fromJS([{
 }]);
 
 export default function tableReducer(state = INITIAL_STATE, action) {
+  state = List.isList(state) ? state : fromJS(state);
   let findIndex = (collection, id) => collection.findIndex(n => n.get('id') === id);
 
   if (!action.type || !action.payload) {

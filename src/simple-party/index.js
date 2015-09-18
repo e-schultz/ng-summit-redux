@@ -5,6 +5,7 @@ import createLogger from 'redux-logger';
 import reducers from '../reducers';
 import ngImmutable from '../lib/immutable-angular';
 import lineup from '../components/lineup';
+import lineupSummary from '../components/lineup-summary';
 import * as Immutable from 'immutable';
 /* beautify preserve:end */
 
@@ -28,7 +29,9 @@ export default angular
   .module('simpleParty', [
     ngRedux,
     ngImmutable,
-    lineup
+    lineup,
+    lineupSummary
+
   ])
   .config(($ngReduxProvider) => {
     

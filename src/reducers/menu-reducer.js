@@ -1,5 +1,5 @@
 /* beautify preserve:start */
-import {fromJS} from 'immutable';
+import {fromJS, List} from 'immutable';
 
 /* beautify preserve:end */
 
@@ -25,8 +25,9 @@ const INITIAL_STATE = fromJS([{
   price: 2.50
 }]);
 
-export default function lineup(state = INITIAL_STATE, action) {
-
+export default function menu(state = INITIAL_STATE, action) {
+  // temporary work around due to dev-tools
+  state = List.isList(state) ? state : fromJS(state);
   switch (action.type) {
     default: return state;
   }

@@ -1,5 +1,5 @@
 /* beautify preserve:start */
-import {fromJS} from 'immutable';
+import {fromJS, Map} from 'immutable';
 import {PARTY_LEFT,PARTY_JOINED} from '../actions/lineup-actions.js';
 import {PARTY_SEATED} from '../actions/table-actions.js';
 /* beautify preserve:end */
@@ -19,7 +19,7 @@ const INITIAL_STATE = fromJS({
 });
 
 export default function lineup(state = INITIAL_STATE, action) {
-
+  state = Map.isMap(state) ? state : fromJS(state);
   switch (action.type) {
   case PARTY_JOINED:
     {
