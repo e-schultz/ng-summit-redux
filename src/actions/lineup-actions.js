@@ -3,10 +3,11 @@ export const PARTY_LEFT = 'PARTY_LEFT';
 
 
 // TODO: Move this out somewhere else - pouchDB/etc?
+let partyIndex = 0;
 
 // temp function for testing for now
 export function _resetIndex() {
-//  partyIndex = 0;
+  partyIndex = 0;
 }
 
 export function joinLine(numberOfPeople) {
@@ -14,7 +15,7 @@ export function joinLine(numberOfPeople) {
   return {
     type: PARTY_JOINED,
     payload: {
-      partyId: Math.random().toString(35).substr(2, 7),
+      partyId: ++partyIndex,
     //  numberOfPeople: numberOfPeople
     numberOfPeople: parseInt(numberOfPeople, 10)
     }

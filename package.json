@@ -38,8 +38,7 @@
     "reselect": "0.0.2",
     "rx": "^3.1.2",
     "sass-loader": "^2.0.1",
-    "style-loader": "^0.12.3",
-    "uid": "0.0.2"
+    "style-loader": "^0.12.3"
   },
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
