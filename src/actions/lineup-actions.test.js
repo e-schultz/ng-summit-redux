@@ -1,6 +1,6 @@
 /* beautify preserve:start */
 import * as lineupActions from './lineup-actions';
-//import Immutable from 'immutable';
+import {fromJS} from 'immutable';
 import chai from 'chai';
 import chaiImmutable from 'chai-immutable';
 chai.use(chaiImmutable);
@@ -9,18 +9,26 @@ chai.use(chaiImmutable);
 describe('the lineup actions', () => {
 
   beforeEach(() => {
-    lineupActions._resetIndex();
+
   });
 
-  it('should create a FSA for joining the line', () => {
-    const action = lineupActions.joinLine(4);
-    expect(action).to.deep.equal({
-      type: lineupActions.PARTY_JOINED,
-      payload: {
-        partyId: 1,
-        numberOfPeople: 4
-      }
+  it.only('should create a FSA for joining the line', () => {
+    lineupActions.joinLine(4)((action) => {
+      expect(action).to.deep.equal({
+        type: lineupActions.PARTY_JOINED,
+        payload: {
+          partyId: 1,
+          numberOfPeople: 4
+        }
+      });
+    }, () => {
+      return {
+        lineup: fromJS({
+          parties: []
+        })
+      };
     });
+
   });
 
   it('should keep track of the party id locally for now', () => {
@@ -41,8 +49,6 @@ describe('the lineup actions', () => {
       }
     });
   });
-
-
 
   it('should convert the number of people to an integer', () => {
     const joinLine = lineupActions.joinLine('5');

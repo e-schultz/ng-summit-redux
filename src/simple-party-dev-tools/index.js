@@ -11,6 +11,7 @@ import * as Immutable from 'immutable';
 import { devTools, persistState } from 'redux-devtools';
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 import React, { Component } from 'react';
+import thunk from 'redux-thunk';
 /* beautify preserve:end */
 
 const logger = createLogger({
@@ -43,7 +44,7 @@ export default angular
         console.log('x',x);
         return x;
       }
-      $ngReduxProvider.createStoreWith(reducers, [logger], [devTools(), persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))]);
+      $ngReduxProvider.createStoreWith(reducers, [thunk, logger], [devTools(), persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))]);
   }).run(($ngRedux, $rootScope, $timeout) => {
     React.render(
       <App store={ $ngRedux }/>,

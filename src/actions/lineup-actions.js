@@ -1,29 +1,26 @@
 export const PARTY_JOINED = 'PARTY_JOINED';
 export const PARTY_LEFT = 'PARTY_LEFT';
 
-
-// TODO: Move this out somewhere else - pouchDB/etc?
-let partyIndex = 0;
-
-// temp function for testing for now
-export function _resetIndex() {
-  partyIndex = 0;
-}
-
-export function joinLine(numberOfPeople) {
-
+export function addPartyToLine(numberOfPeople, partyId) {
   return {
     type: PARTY_JOINED,
     payload: {
-      partyId: ++partyIndex,
-    //  numberOfPeople: numberOfPeople
-    numberOfPeople: parseInt(numberOfPeople, 10)
+      partyId: partyId,
+      numberOfPeople: parseInt(numberOfPeople, 10)
     }
   };
-
 }
 
-
+export function joinLine(numberOfPeople) {
+  return (dispatch, getState) => {
+    let party = getState()
+      .lineup
+      .get('parties')
+      .maxBy(party => party.partyId);
+    let partyIndex = party === []._ ? 1 : party.get('partyId') + 1;
+    return dispatch(addPartyToLine(numberOfPeople, partyIndex));
+  };
+}
 
 export function leaveLine(id) {
   return {
