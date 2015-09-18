@@ -13,11 +13,23 @@ import thunk from 'redux-thunk';
 import { devTools, persistState } from 'redux-devtools';
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 import React, { Component } from 'react';
+import * as Immutable from 'immutable';
 /* beautify preserve:end */
 
 const logger = createLogger({
   level: 'info',
-  collapsed: true
+  collapsed: true,
+  transformer: (state) => {
+    var newState = {};
+    for (var i of Object.keys(state)) {
+      if (Immutable.Iterable.isIterable(state[i])) {
+        newState[i] = state[i].toJS();
+      } else {
+        newState[i] = state[i];
+      }
+    };
+    return newState;
+  }
 });
 
 export default angular
