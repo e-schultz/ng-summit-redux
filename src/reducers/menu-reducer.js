@@ -1,9 +1,8 @@
 /* beautify preserve:start */
-import {fromJS, List} from 'immutable';
 
 /* beautify preserve:end */
 
-const INITIAL_STATE = fromJS([{
+const INITIAL_STATE = [{
   menuId: 'pancake',
   description: 'Stack of Pancakes',
   stock: 50,
@@ -23,11 +22,10 @@ const INITIAL_STATE = fromJS([{
   description: 'Crispy Golden Hashbrowns',
   stock: 10,
   price: 2.50
-}]);
+}];
 
 export default function menu(state = INITIAL_STATE, action) {
-  // temporary work around due to dev-tools
-  state = List.isList(state) ? state : fromJS(state);
+
   switch (action.type) {
     default: return state;
   }

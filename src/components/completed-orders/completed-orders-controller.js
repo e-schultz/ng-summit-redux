@@ -1,6 +1,7 @@
 /* beautify preserve:start */
 import {ORDERED} from '../../constants';
 import tableActions from '../../actions/table-actions';
+import * as R from 'ramda';
 /* beautify preserve:end */
 export default class CompletedOrdersController {
   constructor($ngRedux, $scope) {
@@ -13,13 +14,13 @@ export default class CompletedOrdersController {
     return {
       tableId: order.get('id'),
       items: order.get('order').map((value, key) => {
-        let menuItem = menu.find(menuItem => menuItem.get('menuId') === key);
+        let menuItem = R.find(menuItem => menuItem.menuId === key)(menu);
         return {
           menuId: key,
           qty: value,
-          description: menuItem.get('description'),
-          price: menuItem.get('price'),
-          total: value * menuItem.get('price')
+          description: menuItem.description,
+          price: menuItem.price,
+          total: value * menuItem.price
         };
       }).toArray()
     };

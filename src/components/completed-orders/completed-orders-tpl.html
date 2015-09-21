@@ -11,7 +11,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="item in order.items | mutable">
+                <tr ng-repeat="item in order.items">
                     <td>{{item.description}}</td>
                     <td>{{item.qty}}</td>
                     <td>{{item.total | currency}}</td>

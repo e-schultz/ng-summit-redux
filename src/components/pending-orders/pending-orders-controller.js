@@ -1,5 +1,6 @@
 /* beautify preserve:start */
 import {ORDERING} from '../../constants';
+import * as R from 'ramda';
 /* beautify preserve:end */
 export default class PendingOrdersController {
   constructor($ngRedux, $scope) {
@@ -12,13 +13,13 @@ export default class PendingOrdersController {
     return {
       tableId: order.get('id'),
       items: order.get('order').map((value, key) => {
-        let menuItem = menu.find(menuItem => menuItem.get('menuId') === key);
+        let menuItem = R.find(menuItem => menuItem.menuId === key)(menu);
         return {
           menuId: key,
           qty: value,
-          description: menuItem.get('description'),
-          price: menuItem.get('price'),
-          total: value * menuItem.get('price')
+          description: menuItem.description,
+          price: menuItem.price,
+          total: value * menuItem.price
         };
       }).toArray()
     };
