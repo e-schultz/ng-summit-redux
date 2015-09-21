@@ -36,28 +36,28 @@ export default function tableReducer(state = INITIAL_STATE, action) {
   let findIndex = (collection, id) => collection.findIndex(n => n.get('id') === id);
 
   if (!action.type || !action.payload) {
-    return state;
+    return state.toJS();
   }
 
   let tableIndex = findIndex(state, action.payload.tableId);
   switch (action.type) {
   case PARTY_SEATED:
-    return state.setIn([tableIndex, 'status'], OCCUPIED);
+    return state.setIn([tableIndex, 'status'], OCCUPIED).toJS();
   case ORDER_STARTED:
-    return state.setIn([tableIndex, 'status'], ORDERING);
+    return state.setIn([tableIndex, 'status'], ORDERING).toJS();
   case ITEM_ADDED:
-    return state.updateIn([tableIndex, 'order', action.payload.menuItemId], 0, value => value + 1);
+    return state.updateIn([tableIndex, 'order', action.payload.menuItemId], 0, value => value + 1).toJS();
   case ITEM_REMOVED:
-    return state.updateIn([tableIndex, 'order', action.payload.menuItemId], 0, value => value === 0 ? 0 : value - 1);
+    return state.updateIn([tableIndex, 'order', action.payload.menuItemId], 0, value => value === 0 ? 0 : value - 1).toJS();
   case 'CUSTOMER_PAID':
-    return state.setIn([tableIndex, 'status'], DIRTY);
+    return state.setIn([tableIndex, 'status'], DIRTY).toJS();
   case 'TABLE_CLEANED':
-    return state.setIn([tableIndex, 'status'], CLEAN);
+    return state.setIn([tableIndex, 'status'], CLEAN).toJS();
   case ORDER_COMPLETED:
-    return state.setIn([tableIndex, 'status'], ORDERED);
+    return state.setIn([tableIndex, 'status'], ORDERED).toJS();
   case ORDER_DELIVERED:
-    return state.setIn([tableIndex, 'status'], HAS_FOOD);
+    return state.setIn([tableIndex, 'status'], HAS_FOOD).toJS();
   default:
-    return state;
+    return state.toJS();
   }
 }

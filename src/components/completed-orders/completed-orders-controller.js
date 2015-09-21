@@ -12,8 +12,8 @@ export default class CompletedOrdersController {
   }
   mapOrders(order, menu) {
     return {
-      tableId: order.get('id'),
-      items: order.get('order').map((value, key) => {
+      tableId: order.id,
+      items: R.mapObjIndexed((value, key) => {
         let menuItem = R.find(menuItem => menuItem.menuId === key)(menu);
         return {
           menuId: key,
@@ -22,13 +22,13 @@ export default class CompletedOrdersController {
           price: menuItem.price,
           total: value * menuItem.price
         };
-      }).toArray()
+      })(order.order)
     };
   }
   onUpdate(state) {
-    let pendingOrders = state.tables.filter(n => n.get('status') === ORDERED);
+    let pendingOrders = R.filter(n => n.status === ORDERED)(state.tables);
     return {
-      orders: pendingOrders.map(order => this.mapOrders(order, state.menu))
+      orders: R.map(order => this.mapOrders(order, state.menu))(pendingOrders)
     };
   }
 };

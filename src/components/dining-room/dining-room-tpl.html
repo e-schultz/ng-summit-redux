@@ -3,13 +3,13 @@
     <div class="panel-body">
         <div class="container-fluid">
             <div class="row">
-                <div ng-repeat="table in diningRoom.tables | mutable" class="col-lg-6">
+                <div ng-repeat="table in diningRoom.tables" class="col-lg-6">
                     <tables 
-                        table-id="{{:: table.get('id')}}" 
-                        table-status="{{table.get('status')}}" 
+                        table-id="{{:: table.id}}" 
+                        table-status="{{table.status}}" 
                         on-seated="diningRoom.seatParty(partyId, tableId)" 
                         parties="diningRoom.parties" 
-                        number-of-seats="{{:: table.get('numberOfSeats') }}"
+                        number-of-seats="{{:: table.numberOfSeats }}"
                         on-order-started="diningRoom.startOrder(tableId)"
                         on-complete-order="diningRoom.completeOrder(tableId)"
                         on-add-item-to-order="diningRoom.addItemToOrder(tableId, menuItemId)"
