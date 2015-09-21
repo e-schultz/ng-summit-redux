@@ -10,7 +10,7 @@ export default class DiningRoomController {
   onUpdate(state) {
     return {
       tables: state.tables,
-      parties: state.lineup.get('parties'),
+      parties: state.lineup,
       menu: state.menu
     };
   }

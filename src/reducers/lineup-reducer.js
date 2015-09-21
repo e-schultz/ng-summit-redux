@@ -1,7 +1,7 @@
 /* beautify preserve:start */
-import {fromJS, Map} from 'immutable';
 import {PARTY_LEFT,PARTY_JOINED} from '../actions/lineup-actions.js';
 import {PARTY_SEATED} from '../actions/table-actions.js';
+import * as R from 'ramda';
 /* beautify preserve:end */
 
 /**
@@ -14,29 +14,17 @@ parties: [{
 
 **/
 
-const INITIAL_STATE = fromJS({
-  parties: []
-});
+const INITIAL_STATE = [];
 
 export default function lineup(state = INITIAL_STATE, action) {
-  state = Map.isMap(state) ? state : fromJS(state);
+  
   switch (action.type) {
   case PARTY_JOINED:
-    {
-      return state.updateIn(['parties'], parties => parties.push(fromJS(action.payload)));
-    }
+    return R.append(action.payload)(state);
   case PARTY_SEATED:
-    {
-      const partyIndex = state.get('parties').findIndex(n => n.get('partyId') === action.payload.partyId);
-      // TODO: error handling if index is -1?
-      // alternativly - do I want to change status instead of removing?
-      return state.removeIn(['parties', partyIndex]);
-    }
+    return R.reject(n => n.partyId === action.payload.partyId)(state);
   case PARTY_LEFT:
-    {
-      const partyIndex = state.get('parties').findIndex(n => n.get('partyId') === action.payload.partyId);
-      return state.removeIn(['parties', partyIndex]);
-    }
+    return R.reject(n => n.partyId === action.payload.partyId)(state);
   default:
     return state;
   }

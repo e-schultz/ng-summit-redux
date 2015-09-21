@@ -1,3 +1,5 @@
+import * as R from 'ramda';
+
 export default class LineupSummaryController {
   constructor($ngRedux, $scope) {
 
@@ -8,7 +10,7 @@ export default class LineupSummaryController {
 
   onUpdate(state) {
     return {
-      total: state.lineup.get('parties').reduce((acc, val) => acc + val.get('numberOfPeople'), 0)
+      total: R.reduce((acc, val) => acc + val.numberOfPeople, 0)(state.lineup)
     };
   }
 };

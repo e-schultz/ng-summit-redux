@@ -9,27 +9,23 @@ import chaiImmutable from 'chai-immutable';
 chai.use(chaiImmutable);
 /* beautify preserve:end */
 
-describe('the lineup reducer', () => {
+describe.only('the lineup reducer', () => {
 
   it('should be created with an initial state', () => {
 
-    const expectedState = fromJS({
-      parties: []
-    });
+    const expectedState = [];
 
     const initialState = lineup(undefined, 'reduxInitAction');
 
-    expect(initialState).to.equal(expectedState);
+    expect(initialState).to.deep.equal(expectedState);
   });
 
   it('should allow parties to join the lineup', () => {
     const initialState = lineup(undefined, 'reduxInitAction');
-    const expectedState = fromJS({
-      parties: [{
-        partyId: 1,
-        numberOfPeople: 2
-      }]
-    });
+    const expectedState = [{
+      partyId: 1,
+      numberOfPeople: 2
+      }];
 
     const partyJoined = {
       type: PARTY_JOINED,
@@ -40,24 +36,22 @@ describe('the lineup reducer', () => {
     };
 
     const nextState = lineup(initialState, partyJoined);
-    expect(nextState).to.equal(expectedState);
+    expect(nextState).to.deep.equal(expectedState);
 
   });
 
   context('there is an existing lineup', () => {
-    const THREE_PARTY_STATE = fromJS({
-      parties: [{
-          partyId: 1,
-          numberOfPeople: 2
+    const THREE_PARTY_STATE = [{
+        partyId: 1,
+        numberOfPeople: 2
           },
-        {
-          partyId: 2,
-          numberOfPeople: 1
+      {
+        partyId: 2,
+        numberOfPeople: 1
           }, {
-          partyId: 3,
-          numberOfPeople: 4
-          }]
-    });
+        partyId: 3,
+        numberOfPeople: 4
+          }];
 
     it('should let parties be seated', () => {
 
@@ -70,20 +64,18 @@ describe('the lineup reducer', () => {
         }
       };
 
-      const expectedState = fromJS({
-        parties: [{
-            partyId: 1,
-            numberOfPeople: 2
+      const expectedState = [{
+          partyId: 1,
+          numberOfPeople: 2
           },
-          {
-            partyId: 3,
-            numberOfPeople: 4
-          }]
-      });
+        {
+          partyId: 3,
+          numberOfPeople: 4
+          }];
 
       const nextState = lineup(initialState, partySeated);
 
-      expect(nextState).to.equal(expectedState);
+      expect(nextState).to.deep.equal(expectedState);
 
     });
 
@@ -97,20 +89,18 @@ describe('the lineup reducer', () => {
         }
       };
 
-      const expectedState = fromJS({
-        parties: [{
-            partyId: 1,
-            numberOfPeople: 2
+      const expectedState = [{
+          partyId: 1,
+          numberOfPeople: 2
           },
-          {
-            partyId: 3,
-            numberOfPeople: 4
-          }]
-      });
+        {
+          partyId: 3,
+          numberOfPeople: 4
+          }];
 
       const nextState = lineup(initialState, partySeated);
 
-      expect(nextState).to.equal(expectedState);
+      expect(nextState).to.deep.equal(expectedState);
     });
   });
 

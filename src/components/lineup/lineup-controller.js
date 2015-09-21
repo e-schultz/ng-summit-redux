@@ -9,7 +9,7 @@ export default class LineupController {
 
   onUpdate(state) {
     return {
-      parties: state.lineup.get('parties'),
+      parties: state.lineup,
       numberOfPeople: null // dont have this initially
     };
   }

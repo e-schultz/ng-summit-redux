@@ -3,9 +3,9 @@
     <div class="panel-body">
         <ul class="list-group">
             <li class="list-group-item" ng-repeat="party in lineup.parties | mutable">
-                {{party.get('partyId')}} - {{party.get('numberOfPeople')}}
+                {{party.partyId}} - {{party.numberOfPeople}}
                 <div class="btn btn-group" role="group">
-                    <button type="button" class="btn btn-default" ng-click="lineup.leaveLine(party.get('id'))">X</button>
+                    <button type="button" class="btn btn-default" ng-click="lineup.leaveLine(party.partyId)">X</button>
                 </div>
             </li>
         </ul>

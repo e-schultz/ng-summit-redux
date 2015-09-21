@@ -9,8 +9,10 @@
     <div class="panel-body">
         <div ng-show="table.tableStatus === 'CLEAN'">
             <select ng-model="table.partyId">
-                <option ng-repeat="party in table.parties | mutable" value="{{party.get('partyId')}}" ng-if="party.get('numberOfPeople') <= table.numberOfSeats">
-                    {{party.get('partyId')}} - {{party.get('numberOfPeople')}}
+                <option ng-repeat="party in table.parties" 
+                    value="{{party.partyId}}" 
+                    ng-if="party.numberOfPeople <= table.numberOfSeats">
+                    {{party.partyId}} - {{party.numberOfPeople}}
                 </option>
             </select>
             <button type="button" ng-click="table.seatParty({partyId:table.partyId, tableId: table.tableId});">Seat Party</button>
