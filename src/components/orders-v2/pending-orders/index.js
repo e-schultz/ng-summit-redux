@@ -12,7 +12,7 @@ export default angular
       bindToController: true,
       template: pendingOrdersTemplate,
       scope: {
-        orders: '@'
+        orders: '='
       }
     };
   })

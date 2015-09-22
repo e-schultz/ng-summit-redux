@@ -2,6 +2,7 @@
 import {createSelector} from 'reselect';
 import * as R from 'ramda';
 import {ORDERING, ORDERED} from '../../constants';
+import tableActions from '../../actions/table-actions';
 /* beautify preserve:end */
 
 let orderMap = (menu, tables) => {
@@ -33,14 +34,14 @@ let orderedSelector = createSelector(
 let pendingSelector = createSelector(
   [menuSelector, pendingOrders], (menu, orders) => orderMap(menu, orders));
 
-let ordersSelector = createSelector([pendingSelector, orderedSelector], (pendingOrders, completedOrders) => ({
-  pendingOrders, completedOrders
+let ordersSelector = createSelector([pendingSelector, orderedSelector], (pending, completed) => ({
+  pending, completed
 }));
 
 export default class OrdersController {
   constructor($ngRedux, $scope) {
 
-    let disconnect = $ngRedux.connect(state => this.onUpdate(state))(this);
+    let disconnect = $ngRedux.connect(state => this.onUpdate(state), tableActions)(this);
 
     $scope.$on('$destroy', disconnect);
   }

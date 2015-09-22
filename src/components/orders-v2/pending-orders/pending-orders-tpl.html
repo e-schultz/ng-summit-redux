@@ -1,5 +1,5 @@
 <div>
-    <div ng-repeat="order in pendingOrders.orders | mutable">
+    <div ng-repeat="order in pendingOrders.orders">
         Table: {{order.tableId}}
         <table class="table table-striped">
             <thead>
@@ -10,7 +10,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="item in order.items | mutable">
+                <tr ng-repeat="item in order.items">
                     <td>{{item.description}}</td>
                     <td>{{item.qty}}</td>
                     <td>{{item.total | currency}}</td>

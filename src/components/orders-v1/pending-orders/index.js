@@ -11,9 +11,7 @@ export default angular
       controllerAs: 'pendingOrders',
       bindToController: true,
       template: pendingOrdersTemplate,
-      scope: {
-        orders: '@'
-      }
+      scope: {}
     };
   })
   .name;

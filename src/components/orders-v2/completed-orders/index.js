@@ -11,7 +11,12 @@ export default angular
       controllerAs: 'completedOrders',
       bindToController: true,
       template: completedOrdersTemplate,
-      scope: {}
+      scope: {
+        orders: '=',
+        deliverOrder: '&onDeliverOrder',
+        addItemToOrder: '&onAddItemToOrder',
+        removeItemFromOrder: '&onRemoveItemFromOrder'
+      }
     };
   })
   .name;
