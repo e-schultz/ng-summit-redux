@@ -38,6 +38,7 @@
     "reselect": "0.0.2",
     "rx": "^3.1.2",
     "sass-loader": "^2.0.1",
+    "store": "^1.3.17",
     "style-loader": "^0.12.3"
   },
   "devDependencies": {

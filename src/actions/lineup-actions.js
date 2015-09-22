@@ -1,29 +1,32 @@
+import * as localStorage from 'store';
 export const PARTY_JOINED = 'PARTY_JOINED';
 export const PARTY_LEFT = 'PARTY_LEFT';
 
-
 // TODO: Move this out somewhere else - pouchDB/etc?
-let partyIndex = 0;
 
 // temp function for testing for now
 export function _resetIndex() {
-  partyIndex = 0;
+  localStorage.set('partyId', 0);
 }
 
+function getNextPartyId() {
+  let partyId = localStorage.get('partyId');
+  partyId = partyId === []._ ? 1 : ++partyId;
+  localStorage.set('partyId', partyId);
+  return partyId;
+}
 export function joinLine(numberOfPeople) {
 
   return {
     type: PARTY_JOINED,
     payload: {
-      partyId: ++partyIndex,
-    //  numberOfPeople: numberOfPeople
-    numberOfPeople: parseInt(numberOfPeople, 10)
+      partyId: getNextPartyId(),
+      //  numberOfPeople: numberOfPeople
+      numberOfPeople: parseInt(numberOfPeople, 10)
     }
   };
 
 }
-
-
 
 export function leaveLine(id) {
   return {
