@@ -5,7 +5,7 @@ export default class LineupSummaryController {
 
     let disconnect = $ngRedux.connect(state => this.onUpdate(state))(this);
 
-    $scope.$on('$destroy', () => disconnect());
+    $scope.$on('$destroy', disconnect);
   }
 
   onUpdate(state) {

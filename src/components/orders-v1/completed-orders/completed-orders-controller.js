@@ -1,6 +1,6 @@
 /* beautify preserve:start */
-import {ORDERED} from '../../constants';
-import tableActions from '../../actions/table-actions';
+import {ORDERED} from '../../../constants';
+import tableActions from '../../../actions/table-actions';
 import * as R from 'ramda';
 /* beautify preserve:end */
 export default class CompletedOrdersController {
@@ -26,14 +26,11 @@ export default class CompletedOrdersController {
     };
   }
   onUpdate(state) {
-    let pendingOrders = R.filter(n => n.status === ORDERED)(state.tables);
+    let completedOrders = R.filter(n => n.status === ORDERED)(state.tables);
     return {
-      orders: R.map(order => this.mapOrders(order, state.menu))(pendingOrders)
+      orders: R.map(order => this.mapOrders(order, state.menu))(completedOrders)
     };
   }
 };
 
-/*
 
-
- */

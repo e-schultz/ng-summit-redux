@@ -17,7 +17,9 @@ parties: [{
 const INITIAL_STATE = [];
 
 export default function lineup(state = INITIAL_STATE, action) {
-  
+  if (!action || !action.type) {
+    return state;
+  }
   switch (action.type) {
   case PARTY_JOINED:
     return R.append(action.payload)(state);

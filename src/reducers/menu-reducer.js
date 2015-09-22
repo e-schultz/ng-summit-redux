@@ -25,7 +25,9 @@ const INITIAL_STATE = [{
 }];
 
 export default function menu(state = INITIAL_STATE, action) {
-
+  if (!action && !action.type) {
+    return state;
+  }
   switch (action.type) {
     default: return state;
   }

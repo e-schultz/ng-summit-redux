@@ -15,18 +15,8 @@ import React, { Component } from 'react';
 
 const logger = createLogger({
   level: 'info',
-  collapsed: true,
-  transformer: (state) => {
-    var newState = {};
-    for (var i of Object.keys(state)) {
-      if (Immutable.Iterable.isIterable(state[i])) {
-        newState[i] = state[i].toJS();
-      } else {
-        newState[i] = state[i];
-      }
-    };
-    return newState;
-  }
+  collapsed: true
+
 });
 
 export default angular
@@ -38,11 +28,7 @@ export default angular
 
   ])
   .config(($ngReduxProvider) => {
-      let stateDeseralizer = (state) => {
-        let x = { ...state, lineup: Immutable.fromJS(state.lineup)};
-        console.log('x',x);
-        return x;
-      }
+     
       $ngReduxProvider.createStoreWith(reducers, [logger], [devTools(), persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))]);
   }).run(($ngRedux, $rootScope, $timeout) => {
     React.render(

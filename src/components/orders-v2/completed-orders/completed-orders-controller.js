@@ -1,16 +1,16 @@
 /* beautify preserve:start */
-import {ORDERING} from '../../constants';
+import {ORDERED} from '../../../constants';
+import tableActions from '../../../actions/table-actions';
 import * as R from 'ramda';
 /* beautify preserve:end */
-export default class PendingOrdersController {
+export default class CompletedOrdersController {
   constructor($ngRedux, $scope) {
 
-    let disconnect = $ngRedux.connect(state => this.onUpdate(state))(this);
+    let disconnect = $ngRedux.connect(state => this.onUpdate(state), tableActions)(this);
+
     $scope.$on('$destroy', () => disconnect());
   }
-
   mapOrders(order, menu) {
-
     return {
       tableId: order.id,
       items: R.mapObjIndexed((value, key) => {
@@ -24,17 +24,13 @@ export default class PendingOrdersController {
         };
       })(order.order)
     };
-
   }
   onUpdate(state) {
-    let pendingOrders = R.filter(n => n.status === ORDERING)(state.tables);
+    let completedOrders = R.filter(n => n.status === ORDERED)(state.tables);
     return {
-      orders: R.map(order => this.mapOrders(order, state.menu))(pendingOrders)
+      orders: R.map(order => this.mapOrders(order, state.menu))(completedOrders)
     };
   }
 };
 
-/*
 
-
- */
