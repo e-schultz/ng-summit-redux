@@ -24,10 +24,11 @@ let orderMap = (menu, tables) => {
   })(tables);
 };
 
-let menuSelector = state => state.menu;
+//let menuSelector = state => state.menu;
 let pendingOrders = state => R.filter(n => n.status === ORDERING)(state.tables);
 let completedOrders = state => R.filter(n => n.status === ORDERED)(state.tables);
-
+// bring-reselect into this or not?
+/*
 let orderedSelector = createSelector(
   [menuSelector, completedOrders], (menu, orders) => orderMap(menu, orders));
 
@@ -36,7 +37,7 @@ let pendingSelector = createSelector(
 
 let ordersSelector = createSelector([pendingSelector, orderedSelector], (pending, completed) => ({
   pending, completed
-}));
+}));*/
 
 export default class OrdersController {
   constructor($ngRedux, $scope) {
@@ -47,7 +48,10 @@ export default class OrdersController {
   }
 
   onUpdate(state) {
-    return ordersSelector(state);
+    return {
+      pending: orderMap(state.menu, pendingOrders(state)),
+      completed: orderMap(state.menu, completedOrders(state))
+    };
 
   }
 
