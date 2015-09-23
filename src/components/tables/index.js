@@ -19,9 +19,13 @@ export default angular
         addItemToOrder: '&onAddItemToOrder',
         removeItemFromOrder: '&onRemoveItemFromOrder',
         completeOrder: '&onCompleteOrder',
+        cleanTable: '&onCleanTable',
+        payBill: '&onPayBill',
         numberOfSeats: '@',
         parties: '=',
-        menu: '='
+        menu: '=',
+        currentOrder: '='
+
       }
     };
   })

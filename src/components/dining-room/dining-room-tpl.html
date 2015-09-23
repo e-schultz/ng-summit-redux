@@ -6,7 +6,8 @@
                 <div ng-repeat="table in diningRoom.tables" class="col-lg-6">
                     <tables 
                         table-id="{{:: table.id}}" 
-                        table-status="{{table.status}}" 
+                        table-status="{{table.status}}",
+                        current-order="table.order"
                         on-seated="diningRoom.seatParty(partyId, tableId)" 
                         parties="diningRoom.parties" 
                         number-of-seats="{{:: table.numberOfSeats }}"
@@ -14,6 +15,8 @@
                         on-complete-order="diningRoom.completeOrder(tableId)"
                         on-add-item-to-order="diningRoom.addItemToOrder(tableId, menuItemId)"
                         on-remove-item-from-order="diningRoom.removeItemFromOrder(tableId, menuItemId)"
+                        on-pay-bill="diningRoom.payBill(tableId)"
+                        on-clean-table="diningRoom.cleanTable(tableId)"
                         menu="diningRoom.menu"
                     ></tables>
                 </div>

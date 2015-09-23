@@ -1,8 +1,14 @@
 /* beautify preserve:start */
 import {fromJS, List} from 'immutable';
 import {
-  PARTY_SEATED, ORDER_STARTED, ITEM_ADDED, ITEM_REMOVED, ORDER_COMPLETED, ORDER_DELIVERED
-}
+  PARTY_SEATED,
+  ORDER_STARTED,
+  ITEM_ADDED,
+  ITEM_REMOVED,
+  ORDER_COMPLETED,
+  ORDER_DELIVERED,
+  BILL_PAID,
+  TABLE_CLEANED}
 from '../actions/table-actions.js';
 import {CLEAN, DIRTY, OCCUPIED, ORDERING, ORDERED, HAS_FOOD} from '../constants';
 /* beautify preserve:end */
@@ -48,10 +54,11 @@ export default function tableReducer(state = INITIAL_STATE, action) {
   case ITEM_ADDED:
     return state.updateIn([tableIndex, 'order', action.payload.menuItemId], 0, value => value + 1).toJS();
   case ITEM_REMOVED:
-    return state.updateIn([tableIndex, 'order', action.payload.menuItemId], 0, value => value === 0 ? 0 : value - 1).toJS();
-  case 'CUSTOMER_PAID':
-    return state.setIn([tableIndex, 'status'], DIRTY).toJS();
-  case 'TABLE_CLEANED':
+    return state.updateIn([tableIndex, 'order', action.payload.menuItemId], 0,
+      value => value === 0 ? 0 : value - 1).toJS();
+  case BILL_PAID:
+    return state.setIn([tableIndex, 'status'], DIRTY).setIn([tableIndex, 'order'], fromJS({})).toJS();
+  case TABLE_CLEANED:
     return state.setIn([tableIndex, 'status'], CLEAN).toJS();
   case ORDER_COMPLETED:
     return state.setIn([tableIndex, 'status'], ORDERED).toJS();

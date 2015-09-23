@@ -4,6 +4,9 @@ export const ORDER_DELIVERED = 'ORDER_DELIVERED';
 export const PARTY_SEATED = 'PARTY_SEATED';
 export const ITEM_ADDED = 'ITEM_ADDED';
 export const ITEM_REMOVED = 'ITEM_REMOVED';
+export const BILL_PAID = 'BILL_PAID';
+export const TABLE_CLEANED = 'TABLE_CLEANED';
+
 export function seatParty(partyId, tableId) {
 
   return {
@@ -24,7 +27,7 @@ export function startOrder(tableId) {
 }
 
 export function completeOrder(tableId) {
-  
+
   return {
     type: ORDER_COMPLETED,
     payload: {
@@ -43,7 +46,7 @@ export function deliverOrder(tableId) {
 }
 
 export function addItemToOrder(tableId, menuItemId) {
-  console.log('yo -', tableId, menuItemId);
+
   return {
     type: ITEM_ADDED,
     payload: {
@@ -62,6 +65,25 @@ export function removeItemFromOrder(tableId, menuItemId) {
     }
   };
 }
+
+export function payBill(tableId) {
+  return {
+    type: BILL_PAID,
+    payload: {
+      tableId: parseInt(tableId, 10)
+    }
+  };
+}
+
+export function cleanTable(tableId) {
+  return {
+    type: TABLE_CLEANED,
+    payload: {
+      tableId: parseInt(tableId, 10)
+    }
+  };
+}
+
 export default {
-  startOrder, completeOrder, deliverOrder, seatParty, addItemToOrder, removeItemFromOrder
+  startOrder, completeOrder, deliverOrder, seatParty, addItemToOrder, removeItemFromOrder, payBill, cleanTable
 };

@@ -4,9 +4,9 @@
                              ,'panel-info'   : table.tableStatus === 'HAS_FOOD'
                              ,'panel-danger' : table.tableStatus === 'DIRTY'}">
     <div class="panel-heading">
-        Table Number: {{table.tableId}}, # Of Seats {{table.numberOfSeats}}
+        Table Number: {{table.tableId}}, # Of Seats {{table.numberOfSeats}} - {{table.tableStatus}}
     </div>
-    <div class="panel-body">
+    <div class="panel-body" style="padding:5px">
         <div ng-show="table.tableStatus === 'CLEAN'">
             <select ng-model="table.partyId">
                 <option ng-repeat="party in table.parties" 
@@ -22,12 +22,24 @@
             <button type="button" ng-click="table.startOrder({tableId: table.tableId})">Start Order</button>
         </div>
         <div ng-show="table.tableStatus === 'ORDERING'">
+
             <menu 
                 menu-items="table.menu"
+                current-order="table.currentOrder"
                 on-add-item-to-order="table.addItemToOrder({tableId: tableId, menuItemId:menuItemId})"
                 on-remove-item-from-order="table.removeItemFromOrder({tableId: tableId, menuItemId:menuItemId})"
                 on-complete-order="table.completeOrder({tableId:tableId})"
                 table-id="{{table.tableId}}"></menu>
+        
+        </div>
+        <div ng-show="table.tableStatus === 'ORDERED'">
+        Waiting for food
+        </div>
+        <div ng-show="table.tableStatus === 'HAS_FOOD'">
+        <button type="button" ng-click="table.payBill({tableId: table.tableId})">Pay Bill</button>
+        </div>
+        <div ng-show="table.tableStatus === 'DIRTY'">
+        <button type="button" ng-click="table.cleanTable({tableId: table.tableId})">Clean Table</button>
         </div>
     </div>
 </div>

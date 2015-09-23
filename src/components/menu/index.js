@@ -11,9 +11,11 @@ export default angular
       controllerAs: 'menu',
       bindToController: true,
       template: menuTemplate,
+      replace: true,
       scope: {
         tableId: '@',
         items: '=menuItems',
+        currentOrder: '=',
         addItemToOrder: '&onAddItemToOrder',
         removeItemFromOrder: '&onRemoveItemFromOrder',
         completeOrder: '&onCompleteOrder'
