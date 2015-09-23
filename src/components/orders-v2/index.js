@@ -3,6 +3,8 @@ import OrdersController from './orders-controller';
 import pendingOrders from './pending-orders';
 import completedOrders from './completed-orders';
 import uiRouter from 'angular-ui-router';
+import pendingOrdersContainer from './pending-orders-container-tpl.html';
+import completedOrdersContainer from './completed-orders-container-tpl.html';
 export default angular
   .module('app.components.orders', [uiRouter, pendingOrders, completedOrders])
   .controller('OrdersController', OrdersController)
@@ -23,19 +25,14 @@ export default angular
         url: '/pending',
         views: {
           'orders@app.orders': {
-            template: '<pending-orders orders="orders.pending"></pending-orders>'
+            template: pendingOrdersContainer
           }
         }
       }).state('app.orders.completed', {
         url: '/completed',
         views: {
           'orders@app.orders': {
-            template: `<completed-orders 
-            orders="orders.completed"
-            on-add-item-to-order="orders.addItemToOrder(tableId,menuItemId)"
-            on-remove-item-from-order="orders.removeItemFromOrder(tableId,menuItemId)"
-            on-deliver-order="orders.deliverOrder(tableId)">
-            </completed-orders>`
+            template: completedOrdersContainer
           }
         }
       }).state('app.orders.delivered', {
