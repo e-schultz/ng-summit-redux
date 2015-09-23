@@ -4,7 +4,7 @@
                              ,'panel-info'   : table.tableStatus === 'HAS_FOOD'
                              ,'panel-danger' : table.tableStatus === 'DIRTY'}">
     <div class="panel-heading">
-        Table Number: {{table.tableId}}
+        Table Number: {{table.tableId}}, # Of Seats {{table.numberOfSeats}}
     </div>
     <div class="panel-body">
         <div ng-show="table.tableStatus === 'CLEAN'">
@@ -12,7 +12,7 @@
                 <option ng-repeat="party in table.parties" 
                     value="{{party.partyId}}" 
                     ng-if="party.numberOfPeople <= table.numberOfSeats">
-                    {{party.partyId}} - {{party.numberOfPeople}}
+                    {{party.partyId}} - Party of - {{party.numberOfPeople}}
                 </option>
             </select>
             <button type="button" ng-click="table.seatParty({partyId:table.partyId, tableId: table.tableId});">Seat Party</button>
