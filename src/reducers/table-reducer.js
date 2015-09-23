@@ -38,6 +38,15 @@ export const INITIAL_STATE = fromJS([{
 }]);
 
 export default function tableReducer(state = INITIAL_STATE, action) {
+  /*
+  Typically if using ImmutableJS, we would want to keep things
+  as immutable throughout the application.
+
+  For clarity of the examples, we are doing toJS/fromJS within the reducer
+  so our component code is easier to follow, and only using immutableJS
+  here to provide an easy way to do updates to our collection in an
+  immutable fashion
+   */
   state = List.isList(state) ? state : fromJS(state);
   let findIndex = (collection, id) => collection.findIndex(n => n.get('id') === id);
 

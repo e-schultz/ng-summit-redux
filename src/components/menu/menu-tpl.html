@@ -8,6 +8,7 @@
                 <tr>
                     <th>Desc</th>
                     <th>Qty</th>
+                    <th>Stock</th>
                     <th>
                         <div class="pull-left">+/-</div>
                     </th>
@@ -21,12 +22,19 @@
                     <td>
                         {{menu.currentOrder[item.menuId]}}
                     </td>
+                    <td>{{item.stock}}</td>
                     <td>
                         <div class="btn btn-group pull-right" role="group">
-                            <button type="button" ng-click="menu.addItemToOrder(
+                            <button type="button" 
+                            ng-disabled="{{item.stock === 0}}"
+                            ng-click="menu.addItemToOrder(
                                     {tableId: menu.tableId, 
-                                        menuItemId: item.menuId})" class="btn btn-default">+</button>
-                            <button type="button" ng-click="menu.removeItemFromOrder({tableId: menu.tableId, menuItemId: item.menuId})" class="btn btn-default">-</button>
+                                        menuItemId: item.menuId})" 
+                                        class="btn btn-default">+</button>
+                            <button type="button" 
+                                ng-click="menu.removeItemFromOrder({tableId: menu.tableId, menuItemId: item.menuId})" 
+                                ng-disabled="{{!menu.currentOrder[item.menuId]}}"
+                                class="btn btn-default">-</button>
                         </div>
                     </td>
                 </tr>
