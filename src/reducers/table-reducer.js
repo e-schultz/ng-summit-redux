@@ -13,7 +13,7 @@ from '../actions/table-actions.js';
 import {CLEAN, DIRTY, OCCUPIED, ORDERING, ORDERED, HAS_FOOD} from '../constants';
 /* beautify preserve:end */
 
-export const INITIAL_STATE = fromJS([{
+export const INITIAL_STATE = [{
     id: 1,
     numberOfSeats: 2,
     status: CLEAN,
@@ -35,7 +35,7 @@ export const INITIAL_STATE = fromJS([{
     numberOfSeats: 2,
     status: CLEAN,
     order: {}
-}]);
+}];
 
 export default function tableReducer(state = INITIAL_STATE, action) {
   /*

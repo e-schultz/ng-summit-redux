@@ -9,7 +9,7 @@ import chaiImmutable from 'chai-immutable';
 chai.use(chaiImmutable);
 /* beautify preserve:end */
 
-describe.only('the lineup reducer', () => {
+describe('the lineup reducer', () => {
 
   it('should be created with an initial state', () => {
 
