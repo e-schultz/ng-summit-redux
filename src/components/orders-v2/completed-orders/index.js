@@ -1,5 +1,4 @@
 import angular from 'angular';
-import CompletedOrdersController from './completed-orders-controller';
 import completedOrdersTemplate from './completed-orders-tpl.html';
 
 export default angular
@@ -7,9 +6,6 @@ export default angular
   .directive('completedOrders', () => {
     return {
       restrict: 'E',
-      controller: CompletedOrdersController,
-      controllerAs: 'completedOrders',
-      bindToController: true,
       template: completedOrdersTemplate,
       scope: {
         orders: '=',
