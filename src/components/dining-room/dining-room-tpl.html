@@ -8,16 +8,18 @@
                         table-id="{{:: table.id}}" 
                         table-status="{{table.status}}",
                         current-order="table.order"
-                        on-seated="diningRoom.seatParty(partyId, tableId)" 
                         parties="diningRoom.parties" 
                         number-of-seats="{{:: table.numberOfSeats }}"
+                        menu="diningRoom.menu"
+
+                        on-seated="diningRoom.seatParty(partyId, tableId)" 
                         on-order-started="diningRoom.startOrder(tableId)"
                         on-complete-order="diningRoom.completeOrder(tableId)"
                         on-add-item-to-order="diningRoom.addItemToOrder(tableId, menuItemId)"
                         on-remove-item-from-order="diningRoom.removeItemFromOrder(tableId, menuItemId)"
                         on-pay-bill="diningRoom.payBill(tableId)"
                         on-clean-table="diningRoom.cleanTable(tableId)"
-                        menu="diningRoom.menu"
+                        
                     ></tables>
                 </div>
             </div>

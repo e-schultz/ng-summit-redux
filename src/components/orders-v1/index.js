@@ -17,19 +17,19 @@ export default angular
           }
         }
 
+      }).state('app.orders.completed', {
+        url: '/completed',
+        views: {
+          'orders@app.orders': {
+            template: '<completed-orders></completed-orders>'
+          }
+        }
       })
       .state('app.orders.pending', {
         url: '/pending',
         views: {
           'orders@app.orders': {
             template: '<pending-orders></pending-orders>'
-          }
-        }
-      }).state('app.orders.completed', {
-        url: '/completed',
-        views: {
-          'orders@app.orders': {
-            template: '<completed-orders></completed-orders>'
           }
         }
       }).state('app.orders.delivered', {

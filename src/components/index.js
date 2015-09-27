@@ -6,7 +6,7 @@ import lineupSummary from './lineup-summary';
 import diningRoom from './dining-room';
 import tables from './tables';
 
-import orders from './orders-v2';
+import orders from './orders-v3';
 import menu from './menu';
 /* beautify preserve:end */
 
