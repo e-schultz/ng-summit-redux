@@ -4,8 +4,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "test": "npm run lint; NODE_ENV=test node node_modules/.bin/mocha --compilers js:babel/register --recursive --require src/__tests__/index.js src/**/*.test.js",
-    "test:live": "NODE_ENV=test node node_modules/.bin/mocha --compilers js:babel/register --recursive --require src/__tests__/index.js -w src/**/*.test.js"
+    "test": "NODE_ENV=test node node_modules/.bin/mocha --compilers js:babel/register --recursive --require src/__tests__/index.js 'src/**/*.test.js'",
+    "test:live": "NODE_ENV=test node node_modules/.bin/mocha --compilers js:babel/register --recursive --require src/__tests__/index.js -w 'src/**/*.test.js'"
   },
   "license": "MIT",
   "dependencies": {
