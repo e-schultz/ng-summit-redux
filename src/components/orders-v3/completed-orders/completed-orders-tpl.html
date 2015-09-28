@@ -17,10 +17,14 @@
                     <td>{{item.qty}}</td>
                     <td>{{item.total | currency}}</td>
                     <td>
-                        <button type="button" ng-click="addItemToOrder(
+                        <add-item
+                            on-add-item-to-order="addItemToOrder(
                         {tableId:order.tableId, 
-                            menuItemId:item.menuId})">+</button>
-                        <button type="button" ng-click="removeItemFromOrder({tableId:order.tableId, menuItemId:item.menuId})">-</button>
+                            menuItemId:item.menuId})"></add-item>
+                        <remove-item
+                            on-remove-item-from-order="removeItemFromOrder({tableId:order.tableId, menuItemId:item.menuId})">
+                        </remove-item>
+                       
                     </td>
                 </tr>
             </tbody>
