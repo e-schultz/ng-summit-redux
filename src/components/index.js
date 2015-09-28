@@ -5,7 +5,8 @@ import main from './main';
 import lineupSummary from './lineup-summary';
 import diningRoom from './dining-room';
 import tables from './tables';
-
+import removeItem from './remove-item';
+import addItem from './add-item';
 import orders from './orders-v3';
 import menu from './menu';
 /* beautify preserve:end */
@@ -19,6 +20,8 @@ export default angular
     diningRoom,
     tables,
     orders,
+    removeItem,
+    addItem,
     menu
   ])
   .name;

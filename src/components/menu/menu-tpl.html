@@ -25,16 +25,18 @@
                     <td>{{item.stock}}</td>
                     <td>
                         <div class="btn btn-group pull-right" role="group">
-                            <button type="button" 
-                            ng-disabled="{{item.stock === 0}}"
-                            ng-click="menu.addItemToOrder(
-                                    {tableId: menu.tableId, 
-                                        menuItemId: item.menuId})" 
-                                        class="btn btn-default">+</button>
-                            <button type="button" 
-                                ng-click="menu.removeItemFromOrder({tableId: menu.tableId, menuItemId: item.menuId})" 
-                                ng-disabled="{{!menu.currentOrder[item.menuId]}}"
-                                class="btn btn-default">-</button>
+       <remove-item 
+        on-remove-item-from-order="menu.removeItemFromOrder({tableId: menu.tableId, menuItemId: item.menuId})"
+        ng-disabled="{{!menu.currentOrder[item.menuId]}}">
+        </remove-item>
+        <add-item
+          ng-disabled="{{item.stock === 0}}"
+          on-add-item-to-order="menu.addItemToOrder({tableId: menu.tableId, 
+                                        menuItemId: item.menuId})">
+                                        </add-item>
+
+                           
+                            
                         </div>
                     </td>
                 </tr>

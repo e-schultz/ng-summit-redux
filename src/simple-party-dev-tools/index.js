@@ -29,7 +29,10 @@ export default angular
   ])
   .config(($ngReduxProvider) => {
      
-      $ngReduxProvider.createStoreWith(reducers, [logger], [devTools(), persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))]);
+      $ngReduxProvider.createStoreWith(reducers,
+       [logger], 
+       [devTools(), 
+        persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))]);
   }).run(($ngRedux, $rootScope, $timeout) => {
     React.render(
       <App store={ $ngRedux }/>,

@@ -25,7 +25,7 @@ const orderMap = (menu, tables) => {
     };
   })(tables);
 };
-
+    
 const menuSelector = state => state.menu;
 const pendingOrders = state => R.filter(n => n.status === ORDERING)(state.tables);
 const completedOrders = state => R.filter(n => n.status === ORDERED)(state.tables);
