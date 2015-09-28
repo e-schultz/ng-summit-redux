@@ -22,8 +22,7 @@ export default function lineup(state = INITIAL_STATE, action) {
   }
   switch (action.type) {
   case PARTY_JOINED:
-    let payload = {...action.payload, numberOfPeople: parseInt(action.payload.numberOfPeople)
-    };
+    let payload = {...action.payload, numberOfPeople: parseInt(action.payload.numberOfPeople)};
     return R.append(payload)(state);
 
   case PARTY_SEATED:

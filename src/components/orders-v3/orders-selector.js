@@ -1,9 +1,14 @@
-import {createSelector} from 'reselect';
+import {
+  createSelector
+}
+from 'reselect';
 import * as R from 'ramda';
-import {ORDERING, ORDERED} from '../../constants';
+import {
+  ORDERING, ORDERED
+}
+from '../../constants';
 
-export let orderMap = (menu, tables) => {
-
+const orderMap = (menu, tables) => {
   return R.map(table => {
     return {
       tableId: table.id,
@@ -21,16 +26,17 @@ export let orderMap = (menu, tables) => {
   })(tables);
 };
 
-export let menuSelector = state => state.menu;
-export let pendingOrders = state => R.filter(n => n.status === ORDERING)(state.tables);
-export let completedOrders = state => R.filter(n => n.status === ORDERED)(state.tables);
+const menuSelector = state => state.menu;
+const pendingOrders = state => R.filter(n => n.status === ORDERING)(state.tables);
+const completedOrders = state => R.filter(n => n.status === ORDERED)(state.tables);
 
 let ordersSelector = createSelector([menuSelector, pendingOrders, completedOrders], (menu, pending,
   completed) => {
-  
+
   return {
     pending: orderMap(menu, pending),
     completed: orderMap(menu, completed)
   };
 });
+
 export default ordersSelector;

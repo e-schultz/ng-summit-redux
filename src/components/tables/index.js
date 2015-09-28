@@ -14,6 +14,10 @@ export default angular
       scope: {
         tableId: '@',
         tableStatus: '@',
+        numberOfSeats: '@',
+        parties: '=',
+        menu: '=',
+        currentOrder: '=',
         seatParty: '&onSeated',
         startOrder: '&onOrderStarted',
         addItemToOrder: '&onAddItemToOrder',
@@ -21,11 +25,7 @@ export default angular
         completeOrder: '&onCompleteOrder',
         cleanTable: '&onCleanTable',
         payBill: '&onPayBill',
-        numberOfSeats: '@',
-        parties: '=',
-        menu: '=',
-        currentOrder: '='
-
+        
       }
     };
   })

@@ -18,17 +18,19 @@ To demonstrate reactive architecture using redux + ng-redux with Angular.
 
 Simple resturant application,
 
-* Reducer for a lineup of people waiting to be seated
-* Reducer for seats
-* + maybe 'kitchen'
+* Reducer for Lineup - people waiting to be seated
+* Reducer for Tables - handles seated people, and their orders
+* Reducer for Menu - food items available, and what is in stock
 
-Idea:
+
+# General Idea:
 
 * parties of people can join/leave the line
 * parties get seated at tables
 * tables can take place orders - add/remove items from an order, then have it
   be submitted
 * UI is derived from the application data structure
+
 
 # Data Structure
 
@@ -37,34 +39,32 @@ Idea:
   |      |               
 [Line]   |             
       [Tables]
-         | -- // don't think I want to go as granular as per-seat for simplicty
+         | 
          |
       [Order]
 
 ```
 
-# UI-ideas
+# UI Overview
 
-* Tabbed view, with tabs for:
-* Host/Front of the house view
-  - can see who is in line, and what tables are free/clean
-  - actions: can seat a party
-* Server/waiter view
-  - basic view of tables + status 
-    - empty + clean
-      - can take customers
-    - occupied + no order placed
-      - can place an order
-    - occupied + order placed
-      - can request a bill
-      - [change order - not for this?]
-    - occupied + requested bill
-      - can pay bill -> 
-    - empty + dirty
-* Kitchen view 
-  - goes through the tables structure to get pending orders
-* and/or bar view
-  - goes through the tables structure to get pending orders
+* Lineup + Lineup Summary
+* Dining Room - Smart Component
+  * Table - Dumb component
+    * Can seat a party
+    * Start an order
+    * Pay the bill
+    * Clean the table
+  * Menu - Dumb component
+    * Add item to order
+    * Remove item from order
+    * Place Order
+* Tabs for Orders
+  * Pending Orders - orders that are activly being placed
+    * No actions, render only
+  * Completed Orders - orders that have been taken, and are now in the kitchen
+    * Can add items to order
+    * Can remove items from order
+    * Can deliver the order
 
 # Lineup
 
@@ -75,9 +75,9 @@ Idea:
 
 **Actions/Events**
 
-* enter line
-* get seated
-* leave line 
+* Join Line - PARTY_JOINED
+* Seat a party - PARTY_SEATED
+* Leave the line - PARTY_LEFT
 
 # Tables
 
@@ -102,10 +102,7 @@ Idea:
 
 * table id 
 * id
-* 0..N line items
-  * id
-  * qty
-  * price (?) --- can derive from menuItem? do 
+* Order { key = menu item id, value = qty}
 
 # Menu - food items + drinks
 -- maybe just simplify to 'menuItems' with type drink/food, id, qty, price, desc
@@ -113,7 +110,6 @@ Idea:
 ## MenuItems
 
 * id
-* type -- food/drink
 * price
 * stock
 * description
