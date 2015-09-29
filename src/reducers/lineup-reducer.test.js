@@ -1,7 +1,7 @@
 /* beautify preserve:start */
 import lineup from './lineup-reducer';
 //import Immutable from 'immutable';
-
+import {fromJS} from 'immutable';
 import {PARTY_LEFT,PARTY_JOINED} from '../actions/lineup-actions.js';
 import {PARTY_SEATED} from '../actions/table-actions.js';
 import chai from 'chai';
@@ -15,13 +15,13 @@ describe('the lineup reducer', () => {
 
     const expectedState = [];
 
-    const initialState = lineup();
+    const initialState = lineup(undefined, 'reduxInitAction');
 
     expect(initialState).to.deep.equal(expectedState);
   });
 
   it('should allow parties to join the lineup', () => {
-    const initialState = lineup();
+    const initialState = lineup(undefined, 'reduxInitAction');
     const expectedState = [{
       partyId: 1,
       numberOfPeople: 2
@@ -55,7 +55,7 @@ describe('the lineup reducer', () => {
 
     it('should let parties be seated', () => {
 
-      const initialState = lineup(THREE_PARTY_STATE);
+      const initialState = lineup(THREE_PARTY_STATE, 'reduxInitAction');
 
       const partySeated = {
         type: PARTY_SEATED,
@@ -80,7 +80,7 @@ describe('the lineup reducer', () => {
     });
 
     it('should let parties leave the line', () => {
-      const initialState = lineup(THREE_PARTY_STATE);
+      const initialState = lineup(THREE_PARTY_STATE, 'reduxInitAction');
 
       const partySeated = {
         type: PARTY_LEFT,

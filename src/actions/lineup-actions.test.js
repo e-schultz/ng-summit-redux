@@ -12,16 +12,15 @@ describe('the lineup actions', () => {
     lineupActions._resetIndex();
   });
 
-  it('should create an action for joining the line', () => {
+  it('should create a FSA for joining the line', () => {
     const action = lineupActions.joinLine(4);
-    const expected = {
+    expect(action).to.deep.equal({
       type: lineupActions.PARTY_JOINED,
       payload: {
         partyId: 1,
         numberOfPeople: 4
       }
-    };
-    expect(action).to.deep.equal(expected);
+    });
   });
 
   it('should keep track of the party id locally for now', () => {
