@@ -1,0 +1,41 @@
+<div class="panel" ng-class="{'panel-success': table.tableStatus === 'CLEAN'
+                             ,'panel-primary' : table.tableStatus === 'OCCUPIED' || table.tableStatus === 'ORDERING'
+                             ,'panel-warning' : table.tableStatus === 'ORDERED'
+                             ,'panel-info'   : table.tableStatus === 'HAS_FOOD'
+                             ,'panel-danger' : table.tableStatus === 'DIRTY'}">
+  <div class="panel-heading">
+    Table Number: {{table.tableId}}, # Of Seats {{table.numberOfSeats}} - {{table.tableStatus}}
+  </div>
+  <div class="panel-body" style="padding:5px">
+    <div ng-show="table.tableStatus === 'CLEAN'">
+      <select ng-model="table.partyId">
+        <option ng-repeat="party in table.parties" value="{{party.partyId}}" ng-if="party.numberOfPeople <= table.numberOfSeats">
+          {{party.partyId}} - Party of - {{party.numberOfPeople}}
+        </option>
+      </select>
+      <button type="button" ng-click="table.seatParty({partyId:table.partyId, tableId: table.tableId});">Seat Party</button>
+    </div>
+    <div ng-show="table.tableStatus === 'OCCUPIED'">
+      <button type="button" ng-click="table.startOrder({tableId: table.tableId})">Start Order</button>
+    </div>
+    <div ng-show="table.tableStatus === 'ORDERING'">
+      <menu 
+        table-id="{{table.tableId}}"
+        menu-items="table.menu" 
+        current-order="table.currentOrder" 
+        on-add-item-to-order="table.addItemToOrder({tableId: tableId, menuItemId:menuItemId})" 
+        on-remove-item-from-order="table.removeItemFromOrder({tableId: tableId, menuItemId:menuItemId})" 
+        on-complete-order="table.completeOrder({tableId:tableId})">
+    </menu>
+    </div>
+    <div ng-show="table.tableStatus === 'ORDERED'">
+      Waiting for food
+    </div>
+    <div ng-show="table.tableStatus === 'HAS_FOOD'">
+      <button type="button" ng-click="table.payBill({tableId: table.tableId})">Pay Bill</button>
+    </div>
+    <div ng-show="table.tableStatus === 'DIRTY'">
+      <button type="button" ng-click="table.cleanTable({tableId: table.tableId})">Clean Table</button>
+    </div>
+  </div>
+</div>
