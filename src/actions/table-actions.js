@@ -12,7 +12,6 @@ The action creators are sort of like the command saying 'to do' something.
 The event (ie: type) that is returned as a result is the 'what was done',
 this is what gets sent to your reducers later on, and should reflect
 what has happened in the system.
-
 */
 export function seatParty(partyId, tableId) {
 
