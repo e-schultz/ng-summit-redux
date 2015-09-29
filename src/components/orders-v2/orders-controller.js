@@ -36,7 +36,5 @@ export default class OrdersController {
       pending: orderMap(state.menu, R.filter(n => n.status === ORDERING)(state.tables)),
       completed: orderMap(state.menu, R.filter(n => n.status === ORDERED)(state.tables))
     };
-
   }
-
 }

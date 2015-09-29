@@ -1,14 +1,19 @@
-```
-/* beautify preserve:start */
-/* beautify preserve:end */
-```
 #ng-summit-redux
 
-Sample application for use in ng-summit conference talk.
+Trendy Brunch Demo Application for Angular Summit
 
-To start,
+Get it:
+`git clone https://github.com/e-schultz/ng-summit-redux.git`
+
+To start:
+
+* npm install
 * npm run start
 * open browser to localhost:3000/src
+
+# Slides from the Talk
+
+TODO: Add Link
 
 # App Overview
 
@@ -114,3 +119,17 @@ Simple resturant application,
 * stock
 * description
 
+# Components
+
+There are a few examples of components, smart/dumb components, containers in this application.
+
+In the 'Orders' component, three versions are available showing different approaches.
+
+In `src/components/index.js` you can switch between them by commenting
+out others and only bringing in the one that you want.
+
+```javascript
+// import orders from './orders-v1'; 
+// import orders from './orders-v2'; 
+import orders from './orders-v3'; 
+```
