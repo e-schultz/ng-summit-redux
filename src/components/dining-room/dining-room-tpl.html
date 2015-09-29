@@ -1,27 +1,25 @@
 <div class="panel panel-default">
-    <div class="panel-heading">Dining Room</div>
-    <div class="panel-body">
-        <div class="container-fluid">
-            <div class="row">
-                <div ng-repeat="table in diningRoom.tables" class="col-lg-6">
-                    <tables 
-                        table-id="{{:: table.id}}" 
-                        table-status="{{table.status}}",
-                        current-order="table.order"
-                        parties="diningRoom.parties" 
-                        number-of-seats="{{:: table.numberOfSeats }}"
-                        menu="diningRoom.menu"
-
-                        on-seated="diningRoom.seatParty(partyId, tableId)" 
-                        on-order-started="diningRoom.startOrder(tableId)"
-                        on-complete-order="diningRoom.completeOrder(tableId)"
-                        on-add-item-to-order="diningRoom.addItemToOrder(tableId, menuItemId)"
-                        on-remove-item-from-order="diningRoom.removeItemFromOrder(tableId, menuItemId)"
-                        on-pay-bill="diningRoom.payBill(tableId)"
-                        on-clean-table="diningRoom.cleanTable(tableId)"
-                        
-                    ></tables>
-                </div>
-            </div>
+  <div class="panel-heading">Dining Room</div>
+  <div class="panel-body">
+    <div class="container-fluid">
+      <div class="row">
+        <div ng-repeat="table in diningRoom.tables" class="col-lg-6">
+          <tables 
+            table-id="{{:: table.id}}" 
+            table-status="{{::table.status}}" 
+            current-order="table.order" 
+            parties="diningRoom.parties" 
+            number-of-seats="{{:: table.numberOfSeats }}" 
+            menu="diningRoom.menu" 
+            on-seated="diningRoom.seatParty(partyId, tableId)" 
+            on-order-started="diningRoom.startOrder(tableId)" 
+            on-complete-order="diningRoom.completeOrder(tableId)" 
+            on-add-item-to-order="diningRoom.addItemToOrder(tableId, menuItemId)" 
+            on-remove-item-from-order="diningRoom.removeItemFromOrder(tableId, menuItemId)" 
+            on-pay-bill="diningRoom.payBill(tableId)" 
+            on-clean-table="diningRoom.cleanTable(tableId)">
+          </tables>
         </div>
+      </div>
     </div>
+  </div>

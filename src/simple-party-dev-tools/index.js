@@ -4,10 +4,8 @@ import angular from 'angular';
 import ngRedux from 'ng-redux';
 import createLogger from 'redux-logger';
 import reducers from '../reducers';
-import ngImmutable from '../lib/immutable-angular';
 import lineup from '../components/lineup';
 import lineupSummary from '../components/lineup-summary';
-import * as Immutable from 'immutable';
 import { devTools, persistState } from 'redux-devtools';
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 import React, { Component } from 'react';
@@ -22,10 +20,8 @@ const logger = createLogger({
 export default angular
   .module('simplePartyDev', [
     ngRedux,
-    ngImmutable,
     lineup,
     lineupSummary
-
   ])
   .config(($ngReduxProvider) => {
      
@@ -48,7 +44,7 @@ export default angular
   })
   .name;
 
-   class App extends Component {
+class App extends Component {
   render() {
     
     return (

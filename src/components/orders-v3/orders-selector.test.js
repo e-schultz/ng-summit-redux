@@ -1,9 +1,6 @@
 /* beautify preserve:start */
-
 import ordersSelector from './orders-selector';
-//import {menuSelector, pendingOrders, completedOrders} from './orders-selector';
 import {ORDERING, ORDERED} from '../../constants';
-
 /* beautify preserve:end */
 
 describe('the orders selector', () => {

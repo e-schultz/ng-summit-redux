@@ -22,7 +22,6 @@ export function joinLine(numberOfPeople) {
     payload: {
       partyId: getNextPartyId(),
       numberOfPeople: numberOfPeople
-      //numberOfPeople: parseInt(numberOfPeople, 10)
     }
   };
 

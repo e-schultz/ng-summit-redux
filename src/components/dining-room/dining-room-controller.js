@@ -3,7 +3,10 @@ import tableActions from '../../actions/table-actions';
 export default class DiningRoomController {
   constructor($ngRedux, $scope) {
 
-    let disconnect = $ngRedux.connect((state) => this.onUpdate(state), tableActions)(this);
+    let disconnect = $ngRedux.connect(
+      (state) => this.onUpdate(state), 
+      tableActions)(this);
+    
     $scope.$on('$destroy', () => disconnect());
   }
 

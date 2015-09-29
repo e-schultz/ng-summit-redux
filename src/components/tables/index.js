@@ -24,7 +24,7 @@ export default angular
         removeItemFromOrder: '&onRemoveItemFromOrder',
         completeOrder: '&onCompleteOrder',
         cleanTable: '&onCleanTable',
-        payBill: '&onPayBill',
+        payBill: '&onPayBill'
         
       }
     };
