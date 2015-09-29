@@ -6,7 +6,9 @@ import ordersSelector from './orders-selector';
 export default class OrdersController {
   constructor($ngRedux, $scope) {
 
-    let disconnect = $ngRedux.connect(state => ordersSelector(state), tableActions)(this);
+    let disconnect = $ngRedux.connect(
+        state => ordersSelector(state), 
+        tableActions)(this);
 
     $scope.$on('$destroy', disconnect);
   }

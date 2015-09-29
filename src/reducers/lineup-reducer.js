@@ -16,14 +16,12 @@ parties: [{
 
 const INITIAL_STATE = [];
 
-export default function lineup(state = INITIAL_STATE, action) {
-  if (!action || !action.type) {
-    return state;
-  }
+export default function lineup(state = INITIAL_STATE, action = {}) {
+  
   switch (action.type) {
   case PARTY_JOINED:
-    let payload = {...action.payload, numberOfPeople: parseInt(action.payload.numberOfPeople)};
-    return R.append(payload)(state);
+  
+    return R.append(action.payload)(state);
 
   case PARTY_SEATED:
     return R.reject(n => n.partyId === action.payload.partyId)(state);
