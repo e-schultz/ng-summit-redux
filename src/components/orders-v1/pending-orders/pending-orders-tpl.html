@@ -1,0 +1,21 @@
+<div>
+    <div ng-repeat="order in pendingOrders.orders | mutable">
+        Table: {{order.tableId}}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Qty</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in order.items | mutable">
+                    <td>{{item.description}}</td>
+                    <td>{{item.qty}}</td>
+                    <td>{{item.total | currency}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

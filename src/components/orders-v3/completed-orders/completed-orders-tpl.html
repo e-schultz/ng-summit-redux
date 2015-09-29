@@ -1,0 +1,33 @@
+<div>
+    <div ng-repeat="order in orders">
+        Table: {{order.tableId}} -
+        <button type="button" ng-click="deliverOrder({tableId:order.tableId})">Deliver</button>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Qty</th>
+                    <th>Total</th>
+                    <th>x</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in order.items">
+                    <td>{{item.description}}</td>
+                    <td>{{item.qty}}</td>
+                    <td>{{item.total | currency}}</td>
+                    <td>
+                        <add-item
+                            on-add-item-to-order="addItemToOrder(
+                        {tableId:order.tableId, 
+                            menuItemId:item.menuId})"></add-item>
+                        <remove-item
+                            on-remove-item-from-order="removeItemFromOrder({tableId:order.tableId, menuItemId:item.menuId})">
+                        </remove-item>
+                       
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

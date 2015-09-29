@@ -1,0 +1,48 @@
+<div class="panel">
+  <div class="panel-heading">
+    Menu
+  </div>
+  <div class="panel-body" style="padding:0px">
+    <table class="table table-condensed table-hover">
+      <thead>
+        <tr>
+          <th>Desc</th>
+          <th>Qty</th>
+          <th>Stock</th>
+          <th>
+            <div class="pull-left">+/-</div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in menu.items">
+          <td>
+            {{item.description}}
+          </td>
+          <td>
+            {{menu.currentOrder[item.menuId]}}
+          </td>
+          <td>{{item.stock}}</td>
+          <td>
+            <div class="btn btn-group pull-right" role="group">
+            <remove-item 
+                on-remove-item-from-order="menu.removeItemFromOrder({tableId: menu.tableId, menuItemId: item.menuId})" 
+                ng-disabled="{{!menu.currentOrder[item.menuId]}}">
+              </remove-item>
+          <add-item 
+            ng-disabled="{{item.stock === 0}}" 
+            on-add-item-to-order="menu.addItemToOrder(
+                {tableId: menu.tableId, 
+                 menuItemId: item.menuId})">
+          </add-item>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="panel-footer">
+    <button type="button" ng-click="menu.completeOrder({tableId: menu.tableId})">Done
+    </button>
+  </div>
+</div>
