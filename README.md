@@ -109,10 +109,10 @@ Simple resturant application,
 * id
 * Order { key = menu item id, value = qty}
 
-# Menu - food items + drinks
--- maybe just simplify to 'menuItems' with type drink/food, id, qty, price, desc
 
-## MenuItems
+
+
+# MenuItems
 
 * id
 * price
