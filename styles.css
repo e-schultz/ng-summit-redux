@@ -1,0 +1,26 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  background-color: lightgray;
+}
+
+pre {
+  background-color: lightgray;
+  padding: 15px;
+  margin: 15px;
+}
+
+.mainView {
+  margin-left: 400px;
+  min-height: 100vh;
+}
+
+.child-view {
+  background-color: white;
+  padding: 15px;
+  margin: 15px;
+}
