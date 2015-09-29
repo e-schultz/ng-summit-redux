@@ -11,4 +11,3 @@ export default class GlobalDebugController {
   }
 }
 
-GlobalDebugController.$inject = ['$ngRedux', '$scope'];

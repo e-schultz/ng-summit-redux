@@ -16,7 +16,6 @@ export default class MainController {
   }
   populate() {
     [1, 2, 2, 4, 2, 1, 2, 4].forEach(n => this.$ngRedux.dispatch(lineupActions.joinLine(n)));
-
   }
 
 }
