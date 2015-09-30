@@ -28,10 +28,10 @@
             
             <remove-item 
                 on-remove-item-from-order="menu.removeItemFromOrder({tableId: menu.tableId, menuItemId: item.menuId})" 
-                is-disabled="!menu.currentOrder[item.menuId]">
+                ng-disabled="!menu.currentOrder[item.menuId]">
               </remove-item>
           <add-item 
-            is-disabled="item.stock === 0" 
+            ng-disabled="item.stock === 0" 
             on-add-item-to-order="menu.addItemToOrder(
                 {tableId: menu.tableId, 
                  menuItemId: item.menuId})">
