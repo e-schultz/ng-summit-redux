@@ -2,8 +2,7 @@
 import mainTemplate from '../components/main/main-tpl.html';
 /* beautify preserve:end */
 export default function routerConfig($urlRouterProvider, $stateProvider) {
-  $urlRouterProvider.otherwise('/app');
-
+  
   $stateProvider
     .state('app', {
       url: '/app?debug_session',

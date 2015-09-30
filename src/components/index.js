@@ -8,8 +8,8 @@ import tables from './tables';
 import removeItem from './remove-item';
 import addItem from './add-item';
 // import orders from './orders-v1'; 
-// import orders from './orders-v2'; 
-import orders from './orders-v3'; 
+ import orders from './orders-v2'; 
+//import orders from './orders-v3'; 
 import menu from './menu';
 /* beautify preserve:end */
 
