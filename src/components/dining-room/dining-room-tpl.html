@@ -6,7 +6,7 @@
         <div ng-repeat="table in diningRoom.tables" class="col-lg-6">
           <tables 
             table-id="{{:: table.id}}" 
-            table-status="{{::table.status}}" 
+            table-status="{{table.status}}" 
             current-order="table.order" 
             parties="diningRoom.parties" 
             number-of-seats="{{:: table.numberOfSeats }}" 
