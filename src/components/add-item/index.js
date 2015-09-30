@@ -9,7 +9,8 @@ export default angular
       template: addItemTemplate,
       replace: true,
       scope: {
-        addItemToOrder: '&onAddItemToOrder'
+        addItemToOrder: '&onAddItemToOrder',
+        isDisabled: '=isDisabled'
       }
     };
   })

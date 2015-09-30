@@ -15,8 +15,8 @@ const logger = createLogger({
 export default angular
   .module('simpleParty', [
     ngRedux,
-    lineup,
-    lineupSummary
+    lineup
+    ,lineupSummary
 
   ])
   .config(($ngReduxProvider) => {

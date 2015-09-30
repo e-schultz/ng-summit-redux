@@ -1,4 +1,4 @@
-export default class MenuController {
+  export default class MenuController {
   constructor() {
    
   }
