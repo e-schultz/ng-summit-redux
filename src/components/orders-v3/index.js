@@ -8,7 +8,8 @@ import completedOrdersContainer from './completed-orders-container-tpl.html';
 export default angular
   .module('app.components.orders', [uiRouter, pendingOrders, completedOrders])
   .controller('OrdersController', OrdersController)
-  .config(function ($stateProvider) {
+  .config(function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/app/orders/pending');
     $stateProvider.state('app.orders', {
         url: '/orders',
         abstract: true,
@@ -33,13 +34,6 @@ export default angular
         views: {
           'orders@app.orders': {
             template: pendingOrdersContainer
-          }
-        }
-      }).state('app.orders.delivered', {
-        url: '/delivered',
-        views: {
-          'orders@app.orders': {
-            template: 'delivered'
           }
         }
       });

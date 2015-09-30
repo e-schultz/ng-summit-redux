@@ -5,7 +5,8 @@ import completedOrders from './completed-orders';
 import uiRouter from 'angular-ui-router';
 export default angular
   .module('app.components.orders', [uiRouter, pendingOrders, completedOrders])
-  .config(function routerConfig($stateProvider) {
+  .config(function routerConfig($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/app/orders/pending');
     $stateProvider.state('app.orders', {
         url: '/orders',
         abstract: true,
@@ -30,13 +31,6 @@ export default angular
         views: {
           'orders@app.orders': {
             template: '<pending-orders></pending-orders>'
-          }
-        }
-      }).state('app.orders.delivered', {
-        url: '/delivered',
-        views: {
-          'orders@app.orders': {
-            template: 'delivered'
           }
         }
       });

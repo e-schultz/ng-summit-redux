@@ -6,25 +6,20 @@
     <div class="col-xs-9">
       <dining-room></dining-room>
     </div>
-
   </div>
   <div class="row">
-  <div class="col-xs-12">
-  
-  <ul class="nav nav-tabs">
-
-    <li role="presentation" ng-class="{'active': main.currentStateName === 'app.orders.pending'}"><a ng-click="main.stateGo('app.orders.pending')">Pending Orders</a></li>
-    <li role="presentation"  ng-class="{'active': main.currentStateName === 'app.orders.completed'}"><a ng-click="main.stateGo('app.orders.completed')">Completed Orders</a></li>
-    <li role="presentation"  ng-class="{'active': main.currentStateName === 'app.orders.delivered'}"><a ng-click="main.stateGo('app.orders.delivered')">Delivered Orders</a></li>
-  </ul>
-  <div ui-view="orders"></div>
-  </div>
-  </div>
-  </div>
-  <div class="row">
-  <div class="col-xs-1">
-  <button ng-click="main.populate()">Populate</button>
-  </div>
+    <div class="col-xs-12">
+      <ul class="nav nav-tabs">
+        <li role="presentation" ng-class="{'active': main.currentStateName === 'app.orders.pending'}"><a ng-click="main.stateGo('app.orders.pending')">Pending Orders</a></li>
+        <li role="presentation" ng-class="{'active': main.currentStateName === 'app.orders.completed'}"><a ng-click="main.stateGo('app.orders.completed')">Completed Orders</a></li>
+      </ul>
+      <div ui-view="orders"></div>
+    </div>
   </div>
 </div>
-
+<div class="row">
+  <div class="col-xs-1">
+    <button ng-click="main.populate()">Populate</button>
+  </div>
+</div>
+</div>
