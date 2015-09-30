@@ -9,7 +9,8 @@ export default angular
       template: removeItemTemplate,
       replace: true,
       scope: {
-        removeItemFromOrder: '&onRemoveItemFromOrder'
+        removeItemFromOrder: '&onRemoveItemFromOrder',
+        isDisabled: '='
       }
     };
   })

@@ -25,12 +25,13 @@
           <td>{{item.stock}}</td>
           <td>
             <div class="btn btn-group pull-right" role="group">
+            
             <remove-item 
                 on-remove-item-from-order="menu.removeItemFromOrder({tableId: menu.tableId, menuItemId: item.menuId})" 
-                ng-disabled="{{!menu.currentOrder[item.menuId]}}">
+                is-disabled="!menu.currentOrder[item.menuId]">
               </remove-item>
           <add-item 
-            ng-disabled="{{item.stock === 0}}" 
+            is-disabled="item.stock === 0" 
             on-add-item-to-order="menu.addItemToOrder(
                 {tableId: menu.tableId, 
                  menuItemId: item.menuId})">
