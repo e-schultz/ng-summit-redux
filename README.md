@@ -13,7 +13,7 @@ To start:
 
 # Slides from the Talk
 
-TODO: Add Link
+[slideshare.net](http://www.slideshare.net/EvanSchultz1/reactivearchitecturewithangular)
 
 # App Overview
 
