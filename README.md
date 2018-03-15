@@ -17,7 +17,7 @@ To start:
 
 # Slides from the Talk
 
-TODO: Add Link
+Slides from Angular Summit talk are on [SlideShare](http://www.slideshare.net/EvanSchultz1/reactivearchitecturewithangular).
 
 # App Overview
 
